@@ -21,5 +21,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.32" level="application_server_libraries" />
     <orderEntry type="library" exported="" name="sqljdbc4-3.0" level="project" />
+    <orderEntry type="library" name="jstl:jstl:1.2" level="project" />
   </component>
 </module>
