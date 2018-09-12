@@ -25,12 +25,13 @@ public class ConnectDB {
         return connexion;
     }
 
-    public boolean checkUser(String email, String password, Connection connection) {
+    public Utilisateur checkUser(String email, String password, Connection connection) {
 
         PreparedStatement preparedStatement = null;
+        Utilisateur user = null;
 
         try {
-            preparedStatement = connection.prepareStatement("SELECT idUtilisateur, email, password FROM utilisateur WHERE email = ? and password= ?");
+            preparedStatement = connection.prepareStatement("SELECT idUtilisateur, nom, prenom, email, password FROM utilisateur WHERE email = ? and password= ?");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -39,23 +40,31 @@ public class ConnectDB {
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
 
+            Integer idUser = null;
+            String nom = null;
+            String prenom = null;
             String mailBdd = null;
             String passwordBdd = null;
 
             while(resultSet.next()){
+                idUser = resultSet.getInt("idUtilisateur");
+                nom = resultSet.getString("nom");
+                prenom = resultSet.getString("prenom");
                 mailBdd = resultSet.getString("email");
                 passwordBdd = resultSet.getString("password");
             }
 
             if (email.equals(mailBdd) && password.equals(passwordBdd)){
-                return true;
+                Utilisateur user = new Utilisateur(idUser, nom, prenom,mailBdd,passwordBdd);
+                return user;
+
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return false;
+        return user;
 
     }
 

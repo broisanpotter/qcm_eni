@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 
@@ -38,6 +39,16 @@ public class ServletLogin extends HttpServlet {
             boolean insideTheMatrix = connect.checkUser(mail, password, connection);
 
             if(insideTheMatrix) {
+                HttpSession session = request.getSession();
+
+                if (session.getAttribute("mail") == null && session.getAttribute("password") == null){
+
+                    session.setAttribute("id", idUser);
+                    session.setAttribute("mail", mailBdd);
+                    session.setAttribute("password", password);
+                }
+
+
                 response.sendRedirect("/accueil.jsp");
             }
             else {
