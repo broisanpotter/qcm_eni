@@ -24,7 +24,7 @@ public class ServletLogin extends HttpServlet {
 
         Connection connection = this.connectToDb();
 
-        if (request.getParameter("email") != null || request.getParameter("password") != null) {
+        if (request.getParameter("email") == null || request.getParameter("password") == null) {
 
             String missInfoMessage = "Il manque des infos !!";
             request.setAttribute("message", missInfoMessage);
@@ -35,11 +35,17 @@ public class ServletLogin extends HttpServlet {
             String password = request.getParameter("password");
 
             ConnectDB connect = new ConnectDB();
-            connect.checkUser(mail, password, connection);
+            boolean insideTheMatrix = connect.checkUser(mail, password, connection);
+
+            if(insideTheMatrix) {
+                response.sendRedirect("/accueil.jsp");
+            }
+            else {
+                String missInfoMessage = "T'existe pas tocard !!!!";
+                request.setAttribute("message", missInfoMessage);
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
+            }
         }
-
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

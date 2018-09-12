@@ -17,5 +17,16 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>accueil</servlet-name>
+        <servlet-class>servlet.ServletAccueil</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>accueil</servlet-name>
+        <url-pattern>/accueil</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>

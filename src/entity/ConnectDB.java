@@ -30,16 +30,26 @@ public class ConnectDB {
         PreparedStatement preparedStatement = null;
 
         try {
-            preparedStatement = connection.prepareStatement("SELECT id, nom, prenom, email, password FROM utilisateur WHERE email = ? and password= ?");
+            preparedStatement = connection.prepareStatement("SELECT idUtilisateur, email, password FROM utilisateur WHERE email = ? and password= ?");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
             preparedStatement.setString(1, email);
-            preparedStatement.setString(1, password);
+            preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.first();
 
+            String mailBdd = null;
+            String passwordBdd = null;
+
+            while(resultSet.next()){
+                mailBdd = resultSet.getString("email");
+                passwordBdd = resultSet.getString("password");
+            }
+
+            if (email.equals(mailBdd) && password.equals(passwordBdd)){
+                return true;
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
