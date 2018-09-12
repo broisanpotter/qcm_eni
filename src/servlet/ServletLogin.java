@@ -24,18 +24,21 @@ public class ServletLogin extends HttpServlet {
 
         Connection connection = this.connectToDb();
 
-        String mail = (String) request.getParameter("email");
-        String password = (String) request.getParameter("password");
+        if (request.getParameter("email") != null || request.getParameter("password") != null) {
 
-        if(mail.equals("") && mail.equals("")) {
             String missInfoMessage = "Il manque des infos !!";
             request.setAttribute("message", missInfoMessage);
             request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }
+        else {
+            String mail = request.getParameter("email");
+            String password = request.getParameter("password");
 
+            ConnectDB connect = new ConnectDB();
+            connect.checkUser(mail, password, connection);
         }
 
-        ConnectDB connect = new ConnectDB();
-        connect.checkUser(mail, password, connection);
+
 
     }
 
