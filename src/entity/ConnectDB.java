@@ -1,6 +1,9 @@
 package entity;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 
 public class ConnectDB {
@@ -23,6 +26,16 @@ public class ConnectDB {
             e.printStackTrace();
         }
         return connexion;
+    }
+
+    public static boolean checkSession(HttpServletRequest request, HttpServletResponse response) {
+
+        HttpSession session = request.getSession();
+
+        if(session.getAttribute("id") == null) {
+            return false;
+        }
+        return true;
     }
 
     public Utilisateur checkUser(String email, String password, Connection connection) {

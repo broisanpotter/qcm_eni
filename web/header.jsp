@@ -1,4 +1,4 @@
-<%--
+<%@ page import="entity.Utilisateur" %><%--
   Created by IntelliJ IDEA.
   User: Administrateur
   Date: 13/09/2018
@@ -11,19 +11,18 @@
     <title>Header</title>
 </head>
 <body>
-    <%
-        String nom = " ";
-        String prenom = " ";
+    <% Utilisateur utilisateur = new Utilisateur(session.getAttribute("user")); %>
 
-        if(session.getAttribute("nom") != null && session.getAttribute("prenom") != null ) {
-            nom = (String) session.getAttribute("nom");
-            prenom = (String) session.getAttribute("prenom");
+    <h1>Bienvenue sur ce super site de qcm on va super bien rigoler <%= utilisateur.getPrenom() + " " +utilisateur.getNom()%></h1>
+
+    <% if(session.getAttribute("user") != null) {
+        %>
+        <form method="post" action="${pageContext.request.contextPath}/deconnexion">
+            <input class="btn" type="submit" value="Deconnection">
+        </form>
+        <%
     }%>
-    <h1>Bienvenue sur ce super site de qcm on va super bien rigoler <%= prenom + " " +nom%></h1>
 
-    <form method="post" action="${pageContext.request.contextPath}/deconnexion">
-        <input class="btn" type="submit" value="Deconnection">
-    </form>
 
 
 </body>

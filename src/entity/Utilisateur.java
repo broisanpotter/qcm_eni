@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Utilisateur {
 
     Integer idUtilisateur;
-    String nom;
+    String nom; 
     String prenom;
     String email;
     String password;
@@ -25,6 +25,9 @@ public class Utilisateur {
         this.prenom = prenom;
         this.email = email;
         this.password = password;
+    }
+
+    public Utilisateur(Object user) {
     }
 
     public Integer getIdUtilisateur() {

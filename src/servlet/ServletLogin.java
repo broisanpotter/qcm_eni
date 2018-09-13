@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "ServletLogin")
+@WebServlet(name = "ServletLogin", urlPatterns = "/login")
 public class ServletLogin extends HttpServlet {
 
      private Connection connectToDb() {
@@ -35,25 +35,17 @@ public class ServletLogin extends HttpServlet {
             String mail = request.getParameter("email");
             String password = request.getParameter("password");
 
+
             ConnectDB connect = new ConnectDB();
             Utilisateur insideTheMatrix = connect.checkUser(mail, password, connection);
 
             if(insideTheMatrix != null) {
                 HttpSession session = request.getSession();
 
-                if (session.getAttribute("mail") == null && session.getAttribute("password") == null){
-
-                    session.setAttribute("id", insideTheMatrix.getIdUtilisateur());
-                    session.setAttribute("nom", insideTheMatrix.getNom());
-                    session.setAttribute("prenom", insideTheMatrix.getPrenom());
-                    session.setAttribute("mail", insideTheMatrix.getEmail());
-                    session.setAttribute("password", insideTheMatrix.getPassword());
-                    request.setAttribute("session", session);
-                    request.getRequestDispatcher("/header.jsp").forward(request, response);
+                if (session.getAttribute("user") == null){
+                    session.setAttribute("user", insideTheMatrix);
+                    response.sendRedirect("/accueil");
                 }
-
-
-                response.sendRedirect("/accueil.jsp");
             }
             else {
                 String missInfoMessage = "T'existe pas tocard !!!!";
@@ -67,14 +59,16 @@ public class ServletLogin extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        if(session.getAttribute("id") != null && session.getAttribute("mail") != null && session.getAttribute("password") != null) {
-            request.setAttribute("session", session);
-            request.getRequestDispatcher("/header.jsp").forward(request, response);
+        if(session.getAttribute("user") != null) {
             response.sendRedirect("/accueil.jsp");
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-        dispatcher.forward(request, response);
+        else {
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+            dispatcher.forward(request, response);
+        }
+
+
 
     }
 }
