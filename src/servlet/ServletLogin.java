@@ -17,8 +17,7 @@ import java.sql.Connection;
 public class ServletLogin extends HttpServlet {
 
      private Connection connectToDb() {
-         ConnectDB connect = new ConnectDB();
-         return connect.connect();
+        return ConnectDB.connect();
      }
 
 
@@ -45,9 +44,10 @@ public class ServletLogin extends HttpServlet {
                 if (session.getAttribute("mail") == null && session.getAttribute("password") == null){
 
                     session.setAttribute("id", insideTheMatrix.getIdUtilisateur());
+                    session.setAttribute("nom", insideTheMatrix.getNom());
+                    session.setAttribute("prenom", insideTheMatrix.getPrenom());
                     session.setAttribute("mail", insideTheMatrix.getEmail());
                     session.setAttribute("password", insideTheMatrix.getPassword());
-
                     request.setAttribute("session", session);
                     request.getRequestDispatcher("/header.jsp").forward(request, response);
                 }
@@ -64,6 +64,14 @@ public class ServletLogin extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+
+        if(session.getAttribute("id") != null && session.getAttribute("mail") != null && session.getAttribute("password") != null) {
+            request.setAttribute("session", session);
+            request.getRequestDispatcher("/header.jsp").forward(request, response);
+            response.sendRedirect("/accueil.jsp");
+        }
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
         dispatcher.forward(request, response);

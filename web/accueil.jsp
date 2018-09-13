@@ -11,6 +11,9 @@
     <title>YO</title>
 </head>
 <body>
+    <div>
+        <jsp:include page='header.jsp' />
+    </div>
     <h1>Accueil</h1>
 
 </body>

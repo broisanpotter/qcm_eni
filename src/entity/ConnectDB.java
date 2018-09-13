@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class ConnectDB {
 
-    public Connection connect() {
+    public static Connection connect() {
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
