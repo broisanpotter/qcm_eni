@@ -1,16 +1,28 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrateur
-  Date: 11/09/2018
-  Time: 11:20
+  Date: 12/09/2018
+  Time: 14:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Yo on va se logger</title>
+    <title>YO</title>
 </head>
 <body>
+    <div>
+        <jsp:include page='header.jsp' />
+    </div>
+    <h1>Accueil</h1>
+
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
 
 </body>
 </html>
