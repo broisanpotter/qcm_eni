@@ -55,7 +55,7 @@ public class ConnectDB {
             }
 
             if (email.equals(mailBdd) && password.equals(passwordBdd)){
-                Utilisateur user = new Utilisateur(idUser, nom, prenom,mailBdd,passwordBdd);
+                user = new Utilisateur(idUser, nom, prenom,mailBdd,passwordBdd);
                 return user;
 
             }

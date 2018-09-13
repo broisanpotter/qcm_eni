@@ -1,6 +1,7 @@
 package servlet;
 
 import entity.ConnectDB;
+import entity.Utilisateur;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,16 +37,19 @@ public class ServletLogin extends HttpServlet {
             String password = request.getParameter("password");
 
             ConnectDB connect = new ConnectDB();
-            boolean insideTheMatrix = connect.checkUser(mail, password, connection);
+            Utilisateur insideTheMatrix = connect.checkUser(mail, password, connection);
 
-            if(insideTheMatrix) {
+            if(insideTheMatrix != null) {
                 HttpSession session = request.getSession();
 
                 if (session.getAttribute("mail") == null && session.getAttribute("password") == null){
 
-                    session.setAttribute("id", idUser);
-                    session.setAttribute("mail", mailBdd);
-                    session.setAttribute("password", password);
+                    session.setAttribute("id", insideTheMatrix.getIdUtilisateur());
+                    session.setAttribute("mail", insideTheMatrix.getEmail());
+                    session.setAttribute("password", insideTheMatrix.getPassword());
+
+                    request.setAttribute("session", session);
+                    request.getRequestDispatcher("/header.jsp").forward(request, response);
                 }
 
 
