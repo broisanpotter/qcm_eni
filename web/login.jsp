@@ -13,6 +13,11 @@
 </head>
 <body>
 
+
+    <div>
+        <jsp:include page='header.jsp' />
+    </div>
+
     <h1>Connexion</h1>
 
     <div>

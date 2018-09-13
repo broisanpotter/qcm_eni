@@ -11,7 +11,18 @@
     <title>YO</title>
 </head>
 <body>
+    <div>
+        <jsp:include page='header.jsp' />
+    </div>
     <h1>Accueil</h1>
+
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
 
 </body>
 </html>
