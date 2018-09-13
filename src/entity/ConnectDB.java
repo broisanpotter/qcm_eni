@@ -5,14 +5,14 @@ import java.sql.*;
 
 public class ConnectDB {
 
-    public Connection connect() {
+    public static Connection connect() {
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch ( ClassNotFoundException e) {
             e.printStackTrace();
         }
-        String url = "jdbc:sqlserver://localhost;databasename=qcm";
+        String url = "jdbc:sqlserver://139-UC50-11;databasename=qcm";
         String utilisateur = "sa";
         String motDePasse = "Pa$$w0rd";
         Connection connexion = null;

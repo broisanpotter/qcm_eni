@@ -17,6 +17,14 @@ public class Test {
         this.description = description;
     }
 
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
     public Double getDuree() {
         return duree;
     }

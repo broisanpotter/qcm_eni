@@ -18,6 +18,17 @@
 
 
     <servlet>
+        <servlet-name>test</servlet-name>
+        <servlet-class>servlet.ServletTest</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>accueil</servlet-name>
         <servlet-class>servlet.ServletAccueil</servlet-class>
     </servlet>
