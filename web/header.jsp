@@ -21,6 +21,10 @@
     }%>
     <h1>Bienvenue sur ce super site de qcm on va super bien rigoler <%= prenom + " " +nom%></h1>
 
+    <form method="post" action="${pageContext.request.contextPath}/deconnexion">
+        <input class="btn" type="submit" value="Deconnection">
+    </form>
+
 
 </body>
 </html>
