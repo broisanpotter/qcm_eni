@@ -6,4 +6,9 @@ public class Question {
     String enonce;
     String media;
     Integer points;
+
+    Theme theme;
+
+
+
 }
