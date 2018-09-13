@@ -27,9 +27,6 @@ public class Utilisateur {
         this.password = password;
     }
 
-    public Utilisateur(Object user) {
-    }
-
     public Integer getIdUtilisateur() {
         return idUtilisateur;
     }

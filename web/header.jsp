@@ -11,9 +11,18 @@
     <title>Header</title>
 </head>
 <body>
-    <% Utilisateur utilisateur = new Utilisateur(session.getAttribute("user")); %>
+    <%
+        String nom = "";
+        String prenom = "";
 
-    <h1>Bienvenue sur ce super site de qcm on va super bien rigoler <%= utilisateur.getPrenom() + " " +utilisateur.getNom()%></h1>
+        if(session.getAttribute("user") != null) {
+            Utilisateur utilisateur = (Utilisateur)session.getAttribute("user");
+            prenom = utilisateur.getPrenom();
+            nom = utilisateur.getNom();
+        }
+    %>
+
+    <h1>Bienvenue sur ce super site de qcm on va super bien rigoler <%= prenom + " " + nom%></h1>
 
     <% if(session.getAttribute("user") != null) {
         %>
