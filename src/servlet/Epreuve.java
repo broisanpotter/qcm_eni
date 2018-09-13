@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
+@WebServlet(name = "Epreuve", urlPatterns = "/epreuve/")
 public class Epreuve extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -15,5 +15,7 @@ public class Epreuve extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+        request.getServletContext().getRequestDispatcher("/epreuve/accueil.jsp").forward(request, response);
     }
 }
