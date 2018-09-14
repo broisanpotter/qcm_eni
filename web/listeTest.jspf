@@ -5,9 +5,19 @@
         for(Test t : listeTest) {
     %>
     <div class="formation">
-        <h2><%=t.getLibelle() %></h2>
-        <p> Durée : <%= t.getDuree()%> </p>
-        <p><%= t.getDescription() %></p>
+        <h2>Liste des tests </h2>
+        <table>
+            <tr>
+                <th>Libelle</th>
+                <th>Duree</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><%=t.getLibelle() %></td>
+                <td> <%= t.getDuree()%></td>
+                <td><%= t.getDescription() %></td>
+            </tr>
+        </table>
     </div>
     <br />
     <% } %>
