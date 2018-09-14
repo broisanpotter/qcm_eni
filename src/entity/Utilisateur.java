@@ -10,9 +10,16 @@ public class Utilisateur {
     String email;
     String password;
 
+
     Integer profil;
+
+    
+
     Promotion promotion;
     ArrayList<Epreuve> epreuves;
+
+    public Utilisateur() {
+    }
 
     public Utilisateur(String email, String password) {
         this.email = email;
