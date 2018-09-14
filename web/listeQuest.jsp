@@ -11,6 +11,8 @@
     <title>Questions</title>
 </head>
 <body>
+
+<h2>Liste des questions </h2>
 <div id="page">
     <div id="contenu">
 

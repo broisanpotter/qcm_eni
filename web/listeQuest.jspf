@@ -5,7 +5,6 @@
         for(Question q : listeQuest) {
     %>
     <div class="question">
-        <h2>Liste des questions </h2>
         <table>
             <tr>
                 <th>Enonce</th>

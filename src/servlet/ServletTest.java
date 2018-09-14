@@ -13,7 +13,7 @@ import java.util.List;
 import Dal.DalTest;
 import entity.*;
 
-@WebServlet(name = "ServletTest")
+@WebServlet(name = "ServletTest", urlPatterns = "/test")
 public class ServletTest extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
@@ -34,7 +34,7 @@ public class ServletTest extends HttpServlet {
             // Placer l'objet représentant l'exception dans le contexte de requete
             request.setAttribute("erreur", sqle);
             // Passer la main à la page de présentation des erreurs
-            dispatcher = request.getRequestDispatcher("/erreur/erreur.jsp");
+            dispatcher = request.getRequestDispatcher("/erreur.jsp");
             dispatcher.forward(request, response);
             return;
         }

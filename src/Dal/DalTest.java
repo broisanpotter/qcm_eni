@@ -28,6 +28,7 @@ public class DalTest {
 
             while (rs.next()){
                 Test test = new Test();
+                test.setIdTest(rs.getInt("idTest"));
                 test.setLibelle(rs.getString("libelle"));
                 test.setDescription(rs.getString("description"));
                 test.setDuree(rs.getDouble("duree"));

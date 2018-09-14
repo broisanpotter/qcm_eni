@@ -5,7 +5,6 @@
         for(Test t : listeTest) {
     %>
     <div class="formation">
-        <h2>Liste des tests </h2>
         <table>
             <tr>
                 <th>Libelle</th>
@@ -13,9 +12,11 @@
                 <th>Description</th>
             </tr>
             <tr>
+                <td><%=t.getIdTest()%></td>
                 <td><%=t.getLibelle() %></td>
                 <td> <%= t.getDuree()%></td>
                 <td><%= t.getDescription() %></td>
+                <td> <button id="<%=t.getIdTest()%>">Supprimer</button> </td>
             </tr>
         </table>
     </div>

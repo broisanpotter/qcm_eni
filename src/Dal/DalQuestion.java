@@ -19,13 +19,14 @@ public class DalQuestion {
         ResultSet rs = null;
         try{
             cnx = ConnectDB.connect();
-            rqt = cnx.prepareStatement("select * from test");
+            rqt = cnx.prepareStatement("select * from question");
             rs=rqt.executeQuery();
 
             while (rs.next()){
                 Question quest = new Question();
+                quest.setIdQuestion(rs.getInt(("idQuestion")));
                 quest.setEnonce(rs.getString("enonce"));
-                quest.setMedia(rs.getBlob("media"));
+                quest.setMedia(rs.getString("media"));
                 quest.setPoints(rs.getInt("points"));
                 quest.setIdTheme(rs.getInt("idTheme"));
 

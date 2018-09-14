@@ -13,32 +13,32 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "ServletQuestion")
+@WebServlet(name = "ServletQuestion", urlPatterns = "/question")
 public class ServletQuestion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        processRequest(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        processRequest(request, response);
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = null;
-        List<Question> listeTest = null;
+        List<Question> listeQuest = null;
 
         // Construire la liste des formations et la placer en session
         try {
-            listeTest = DalQuestion.lister();
+            listeQuest = DalQuestion.lister();
         }catch (SQLException sqle){
             // Placer l'objet représentant l'exception dans le contexte de requete
             request.setAttribute("erreur", sqle);
             // Passer la main à la page de présentation des erreurs
-            dispatcher = request.getRequestDispatcher("/erreur/erreur.jsp");
+            dispatcher = request.getRequestDispatcher("/erreur.jsp");
             dispatcher.forward(request, response);
             return;
         }
-        request.getSession().setAttribute("listeQuest", listeTest);
+        request.getSession().setAttribute("listeQuest", listeQuest);
         dispatcher = request.getRequestDispatcher("/listeQuest.jsp");
         dispatcher.forward(request, response);
 

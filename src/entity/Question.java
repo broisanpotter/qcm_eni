@@ -6,7 +6,7 @@ public class Question {
 
     int idQuestion;
     String enonce;
-    Blob media;
+    String media;
     int points;
     int  idTheme;
 
@@ -22,7 +22,7 @@ public class Question {
         this.idTheme = idTheme;
     }
 
-    public Question(int idQuestion, String enonce, Blob media, int points, int idTheme) {
+    public Question(int idQuestion, String enonce, String media, int points, int idTheme) {
         this.idQuestion = idQuestion;
         this.enonce = enonce;
         this.media = media;
@@ -57,11 +57,11 @@ public class Question {
         this.enonce = enonce;
     }
 
-    public Blob getMedia() {
+    public String getMedia() {
         return media;
     }
 
-    public void setMedia(Blob media) {
+    public void setMedia(String media) {
         this.media = media;
     }
 
