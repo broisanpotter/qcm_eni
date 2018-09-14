@@ -1,0 +1,26 @@
+<%@ page import ="entity.*, java.util.*, java.text.*" %>
+<div id="listeQuest">
+    <%
+        ArrayList<Question> listeQuest = (ArrayList<Question>)request.getSession().getAttribute("listeQuest");
+        for(Question q : listeQuest) {
+    %>
+    <div class="question">
+        <h2>Liste des questions </h2>
+        <table>
+            <tr>
+                <th>Enonce</th>
+                <th>Media</th>
+                <th>Points</th>
+                <th>idTheme</th>
+            </tr>
+            <tr>
+                <td><%=q.getEnonce() %></td>
+                <td> <%= q.getMedia()%></td>
+                <td><%= q.getPoints() %></td>
+                <td><%= q.getIdTheme() %></td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <% } %>
+</div>
