@@ -28,7 +28,7 @@
 
     <% if(profil == 2) {
         %>
-        <li>Ajouter un candidat</li>
+        <li><a href="/utilisateur/accueilUtilisateur.jsp">Ajouter un candidat</a></li>
         <li>Consulter les resultats</li>
         <li>Voir les tests</li>
         <%

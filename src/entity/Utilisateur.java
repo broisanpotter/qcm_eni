@@ -9,12 +9,7 @@ public class Utilisateur {
     String prenom;
     String email;
     String password;
-
-
     Integer profil;
-
-    
-
     Promotion promotion;
     ArrayList<Epreuve> epreuves;
 
