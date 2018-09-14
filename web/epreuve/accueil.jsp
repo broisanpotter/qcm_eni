@@ -11,9 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-    <div>
-        <jsp:include page='menu.jsp' />
-    </div>
+
     <div>
         <input type="button" value="Retour">
         <input type="button" value="Commencer">

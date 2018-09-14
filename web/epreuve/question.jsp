@@ -1,4 +1,4 @@
-<%--
+<%@ page import="entity.QuestionTirage" %><%--
   Created by IntelliJ IDEA.
   User: Administrateur
   Date: 13/09/2018
@@ -11,6 +11,12 @@
     <title>Title</title>
 </head>
 <body>
+    <div>
+        <jsp:include page='menu.jsp' />
+    </div>
+    <div>
+        <%=question.getQuestion().enonce%>
+    </div>
 
 </body>
 </html>
