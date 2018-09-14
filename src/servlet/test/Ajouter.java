@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Ajouter", urlPatterns = "/test/ajouter")
+@WebServlet(name = "TestAjouter", urlPatterns = "/test/ajouter")
 public class Ajouter extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
         System.out.println("post");
     }

@@ -13,12 +13,20 @@
         .questions{
             border: solid 1px;
             padding: 3px;
+            width: 100px;
+            background-color: lightgray;
+        }
+        .questions:hover {
+            background-color: aqua;
+        }
+        #menuquestions{
+            display: flex
         }
     </style>
 </head>
 <body>
-    <div>Questions</div>
-    <div style="display: flex">
+    <h2>Questions</h2>
+    <div id="menuquestions">
         <div class="questions">1</div>
         <div class="questions">2</div>
         <div class="questions">3</div>

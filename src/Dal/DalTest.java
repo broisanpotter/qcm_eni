@@ -28,11 +28,12 @@ public class DalTest {
 
             while (rs.next()){
                 Test test = new Test();
+                test.setIdTest(rs.getInt("idTest"));
                 test.setLibelle(rs.getString("libelle"));
                 test.setDescription(rs.getString("description"));
-                test.setDuree(rs.getDouble("duree"));
-                test.setSeuilHaut(rs.getDouble("seuil_haut"));
-                test.setSeuilBas(rs.getDouble("seuil_bas"));
+                test.setDuree(rs.getInt("duree"));
+                test.setSeuilHaut(rs.getInt("seuil_haut"));
+                test.setSeuilBas(rs.getInt("seuil_bas"));
 
                 listeTest.add(test);
             }
