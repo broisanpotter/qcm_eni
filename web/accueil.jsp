@@ -9,39 +9,15 @@
 <html>
 <head>
     <title>YO</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
+<div>
+    <%@ include file='navbar.jspf' %>
+</div>
     <div>
-        <jsp:include page='header.jsp' />
+        <%@ include file='header.jspf' %>
     </div>
     <h1>Accueil</h1>
-    <%
-    int profil = 0;
-
-    if(session.getAttribute("user") != null) {
-        Utilisateur utilisateur = (Utilisateur)session.getAttribute("user");
-        profil = utilisateur.getProfil();
-
-    }
-    %>
-    <ul>
-
-    <% if(profil == 2) {
-        %>
-        <li><a href="http://localhost:8080/accueilUtilisateur">Gestion des candidats et collaborateurs</a></li>
-        <li>Consulter les resultats</li>
-        <li>Voir les tests</li>
-        <%
-    }
-    else {
-        %>
-        <li>Passer un test</li>
-        <li>Reprendre un test</li>
-        <li>Consulter ses résultats</li>
-        <%
-    }
-    %>
-    </ul>
-
 </body>
 </html>

@@ -1,6 +1,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Utilisateur" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%--
+
   Created by IntelliJ IDEA.
   User: Administrateur
   Date: 14/09/2018
@@ -11,10 +13,15 @@
 <html>
 <head>
     <title>Gestion des utilisateurs</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
+
+<div>
+    <%@ include file='../navbar.jspf' %>
+</div>
     <div>
-        <jsp:include page='../header.jsp' />
+        <%@ include file='../header.jspf' %>
     </div>
 
     <h1>Gestion des utilisateurs</h1>
@@ -23,6 +30,12 @@
 
     <h2>Liste des collaborateurs</h2>
 
+    <table class="table">
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+        </tr>
     <%
         if(request.getAttribute("listCollaborateur") != null) {
 
@@ -34,15 +47,23 @@
                     <td><%=utilisateur.getNom()%></td>
                     <td><%=utilisateur.getPrenom()%></td>
                     <td><%=utilisateur.getEmail()%></td>
+                    <td><button id="<%=utilisateur.getIdUtilisateur()%>">Supprimer</button></td>
+                    <td><button id="<%=utilisateur.getIdUtilisateur()%>">Modifier</button></td>
                 </tr><br>
                 <%
             }
         }
 
         %>
-
+    </table>
         <h2>Liste des candidats</h2>
 
+<table class="table">
+    <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+    </tr>
         <%
 
         if(request.getAttribute("listCandidat") != null) {
@@ -55,11 +76,14 @@
                 <td><%=utilisateur.getNom()%></td>
                 <td><%=utilisateur.getPrenom()%></td>
                 <td><%=utilisateur.getEmail()%></td>
+                <td><button id="<%=utilisateur.getIdUtilisateur()%>">Supprimer</button></td>
+                <td><button id="<%=utilisateur.getIdUtilisateur()%>">Modifier</button></td>
             </tr>
             <%
             }
         }
     %>
+    </table>
 
 
 

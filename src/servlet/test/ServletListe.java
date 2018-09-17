@@ -1,4 +1,7 @@
-package servlet;
+package servlet.test;
+
+import Dal.DalTest;
+import entity.Test;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,11 +13,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-import Dal.DalTest;
-import entity.*;
-
-@WebServlet(name = "ServletTest", urlPatterns = "/test")
-public class ServletTest extends HttpServlet {
+@WebServlet(name = "TestListe", urlPatterns = "/test/liste")
+public class ServletListe extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -34,12 +34,12 @@ public class ServletTest extends HttpServlet {
             // Placer l'objet représentant l'exception dans le contexte de requete
             request.setAttribute("erreur", sqle);
             // Passer la main à la page de présentation des erreurs
-            dispatcher = request.getRequestDispatcher("/erreur.jsp");
+            dispatcher = request.getRequestDispatcher("/erreur/erreur.jsp");
             dispatcher.forward(request, response);
             return;
         }
         request.getSession().setAttribute("listeTest", listeTest);
-        dispatcher = request.getRequestDispatcher("/listeTest.jsp");
+        dispatcher = request.getRequestDispatcher("/test/liste.jsp");
         dispatcher.forward(request, response);
 
     }
