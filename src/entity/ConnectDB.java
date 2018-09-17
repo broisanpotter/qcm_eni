@@ -15,7 +15,7 @@ public class ConnectDB {
         } catch ( ClassNotFoundException e) {
             e.printStackTrace();
         }
-        String url = "jdbc:sqlserver://localhost;databasename=qcm";
+        String url = "jdbc:sqlserver://localhost;databasename=QCM_JEE";
         String utilisateur = "sa";
         String motDePasse = "Pa$$w0rd";
         Connection connexion = null;

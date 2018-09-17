@@ -14,10 +14,28 @@
     <div>
         <jsp:include page='../header.jsp' />
     </div>
+
     <h1>Création d'un utilisateur</h1>
 
-    <form action="post">
+    <div>
+        <%
+        String message = (String)request.getAttribute("message");
+        if(message != null) {
+            %><span>
+            <%= message %>
+            </span><%
+        }
+        %>
+    </div>
 
+    <form action="/ajoutUtilisateur" method="post">
+        <input type="text" name="prenom" placeholder="Prénom"><br>
+        <input type="text" name="nom" placeholder="Nom"><br>
+        <input type="email" name="email" placeholder="email"><br>
+        <input type="text" name="password" placeholder="mot de passe"><br>
+        <input type="text" name="statut" placeholder="statut"><br>
+        <input type="text" name="promo" placeholder="code Promo"><br>
+        <input type="submit">
 
     </form>
 

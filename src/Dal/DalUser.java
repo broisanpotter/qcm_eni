@@ -15,7 +15,6 @@ public class DalUser {
     public static List<Utilisateur> listerUser( int codeProfil) throws SQLException {
 
         List<Utilisateur> listeUser = new ArrayList<Utilisateur>();
-        System.out.println("inside list user");
         Connection cnx = null;
         PreparedStatement rqt = null;
         ResultSet rs = null;
@@ -23,7 +22,6 @@ public class DalUser {
             cnx = ConnectDB.connect();
             rqt = cnx.prepareStatement("select * from Utilisateur where codeProfil=" + codeProfil);
             rs=rqt.executeQuery();
-            System.out.println("exec query");
 
             while (rs.next()){
                 Utilisateur user = new Utilisateur();
@@ -31,7 +29,6 @@ public class DalUser {
                 user.setEmail(rs.getString("email"));
                 user.setPrenom(rs.getString("prenom"));
                 listeUser.add(user);
-                System.out.println(user.getPrenom());
             }
 
 
@@ -40,13 +37,13 @@ public class DalUser {
             if (rqt!=null) rqt.close();
             if (cnx!=null) cnx.close();
         }
-        System.out.println("out query");
         return listeUser;
 
     }
 
     public static void ajouterUser(String nom , String prenom,String email, String password, int promo, int profil) throws SQLException
     {
+        System.out.println("inside ajout user");
         Connection cnx=null;
         PreparedStatement rqt=null;
         try
