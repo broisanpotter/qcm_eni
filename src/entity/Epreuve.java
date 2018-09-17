@@ -1,7 +1,6 @@
 package entity;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 public class Epreuve {
 
@@ -13,8 +12,21 @@ public class Epreuve {
     Double note_obtenue;
     String niveau_obtenu;
 
-    Test test;
-    Utilisateur utilisateur;
+    Integer idTest;
+    Integer idUtilisateur;
+
+    public Epreuve(Integer idEpreuve, Date dateDebutValidite, Date dateFinValidite, Integer tempsEcoule, String etat, Double note_obtenue, String niveau_obtenu) {
+        this.idEpreuve = idEpreuve;
+        this.dateDebutValidite = dateDebutValidite;
+        this.dateFinValidite = dateFinValidite;
+        this.tempsEcoule = tempsEcoule;
+        this.etat = etat;
+        this.note_obtenue = note_obtenue;
+        this.niveau_obtenu = niveau_obtenu;
+    }
+
+    public Epreuve() {
+    }
 
     public Integer getIdEpreuve() {
         return idEpreuve;
@@ -72,39 +84,19 @@ public class Epreuve {
         this.niveau_obtenu = niveau_obtenu;
     }
 
-    public Test getTest() {
-        return test;
+    public Integer getIdTest() {
+        return idTest;
     }
 
-    public void setTest(Test test) {
-        this.test = test;
+    public void setIdTest(Integer idTest) {
+        this.idTest = idTest;
     }
 
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
+    public Integer getIdUtilisateur() {
+        return idUtilisateur;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
-    }
-
-    public ArrayList<QuestionTirage> getQuestionsTirage() {
-        return questionsTirage;
-    }
-
-    public void setQuestionsTirage(ArrayList<QuestionTirage> questionsTirage) {
-        this.questionsTirage = questionsTirage;
-    }
-
-    ArrayList<QuestionTirage> questionsTirage;
-
-    public Epreuve(Integer idEpreuve, Date dateDebutValidite, Date dateFinValidite, Integer tempsEcoule, String etat, Double note_obtenue, String niveau_obtenu) {
-        this.idEpreuve = idEpreuve;
-        this.dateDebutValidite = dateDebutValidite;
-        this.dateFinValidite = dateFinValidite;
-        this.tempsEcoule = tempsEcoule;
-        this.etat = etat;
-        this.note_obtenue = note_obtenue;
-        this.niveau_obtenu = niveau_obtenu;
+    public void setIdUtilisateur(Integer idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 }

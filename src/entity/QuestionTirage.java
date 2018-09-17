@@ -6,14 +6,10 @@ public class QuestionTirage {
 
     String estMarquee;
     Integer numOrdre;
+    Integer idEpreuve;
+    Integer idQuestion;
 
-    Epreuve epreuve;
-    Question question;
-    ArrayList<ReponseTirage> reponsesTirage;
-
-    public QuestionTirage(String estMarquee, Integer numOrdre) {
-        this.estMarquee = estMarquee;
-        this.numOrdre = numOrdre;
+    public QuestionTirage() {
     }
 
     public String getEstMarquee() {
@@ -32,27 +28,19 @@ public class QuestionTirage {
         this.numOrdre = numOrdre;
     }
 
-    public Epreuve getEpreuve() {
-        return epreuve;
+    public Integer getIdEpreuve() {
+        return idEpreuve;
     }
 
-    public void setEpreuve(Epreuve epreuve) {
-        this.epreuve = epreuve;
+    public void setIdEpreuve(Integer idEpreuve) {
+        this.idEpreuve = idEpreuve;
     }
 
-    public Question getQuestion() {
-        return question;
+    public Integer getIdQuestion() {
+        return idQuestion;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
-
-    public ArrayList<ReponseTirage> getReponsesTirage() {
-        return reponsesTirage;
-    }
-
-    public void setReponsesTirage(ArrayList<ReponseTirage> reponsesTirage) {
-        this.reponsesTirage = reponsesTirage;
+    public void setIdQuestion(Integer idQuestion) {
+        this.idQuestion = idQuestion;
     }
 }

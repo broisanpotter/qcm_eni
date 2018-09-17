@@ -23,10 +23,12 @@
         ArrayList<Test> listeTest = (ArrayList<Test>)request.getSession().getAttribute("listeTest");
         for(Test t : listeTest) {
     %>
-    <div class="ligne">
-        <div><a href="http://localhost:8080/test/<%=t.getIdTest()%>"><%=t.getLibelle() %></a>( <%=t.getDuree() %> min ) </div>
-        <div style="font-style: italic; padding: 0 25px"><%= t.getDescription() %></div>
-    </div>
+    <a href="http://localhost:8080/test?id=<%=t.getIdTest()%>">
+        <div class="ligne">
+            <div><%=t.getLibelle() %>( <%=t.getDuree() %> min )</div>
+            <div style="font-style: italic; padding: 0 25px"><%= t.getDescription() %></div>
+        </div>
+    </a>
     <% } %>
 </div>
 </div>

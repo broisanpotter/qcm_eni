@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "TestListe", urlPatterns = "/test/liste")
-public class Liste extends HttpServlet {
+public class ServletListe extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
