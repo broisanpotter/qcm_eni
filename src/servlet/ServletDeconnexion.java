@@ -12,17 +12,17 @@ import java.io.IOException;
 public class ServletDeconnexion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        request.getParameter("mail");
-        if(session.getAttribute("mail") == null){
-            this.getServletContext().getRequestDispatcher("/login").forward(request, response);
+        request.getParameter("user");
+        if(session.getAttribute("user") == null){
+            response.sendRedirect("/login");
         } else {
-            session.getAttribute("mail");
+            session.getAttribute("user");
             session.invalidate();
-            this.getServletContext().getRequestDispatcher("/login").forward(request, response);
+            response.sendRedirect("/login");
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
     }
 }

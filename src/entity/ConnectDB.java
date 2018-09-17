@@ -32,10 +32,13 @@ public class ConnectDB {
 
         HttpSession session = request.getSession();
 
-        if(session.getAttribute("id") == null) {
+        if(session.getAttribute("user") != null) {
+            return true;
+        }
+        else {
             return false;
         }
-        return true;
+
     }
 
     public Utilisateur checkUser(String email, String password, Connection connection) {

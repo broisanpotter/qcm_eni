@@ -1,5 +1,8 @@
 package servlet;
 
+import Dal.DalQuestion;
+import entity.Question;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +13,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-import Dal.DalTest;
-import entity.*;
-
-@WebServlet(name = "ServletTest", urlPatterns = "/test")
-public class ServletTest extends HttpServlet {
+@WebServlet(name = "ServletQuestion", urlPatterns = "/question")
+public class ServletQuestion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -25,11 +25,11 @@ public class ServletTest extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = null;
-        List<Test> listeTest = null;
+        List<Question> listeQuest = null;
 
         // Construire la liste des formations et la placer en session
         try {
-            listeTest = DalTest.lister();
+            listeQuest = DalQuestion.lister();
         }catch (SQLException sqle){
             // Placer l'objet représentant l'exception dans le contexte de requete
             request.setAttribute("erreur", sqle);
@@ -38,8 +38,8 @@ public class ServletTest extends HttpServlet {
             dispatcher.forward(request, response);
             return;
         }
-        request.getSession().setAttribute("listeTest", listeTest);
-        dispatcher = request.getRequestDispatcher("/listeTest.jsp");
+        request.getSession().setAttribute("listeQuest", listeQuest);
+        dispatcher = request.getRequestDispatcher("/listeQuest.jsp");
         dispatcher.forward(request, response);
 
     }

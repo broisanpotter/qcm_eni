@@ -1,0 +1,5 @@
+<%@ page import ="entity.*, java.util.*, java.text.*" %>
+<div id="header">
+
+    <h4>Bienvenue sur ce super site de qcm on va super bien rigoler </h4>
+</div>

@@ -10,12 +10,15 @@
 <html>
 <head>
     <title>test</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-
+<div>
+    <%@ include file='navbar.jspf' %>
+</div>
 
     <div>
-        <jsp:include page='header.jsp' />
+        <%@ include file='header.jspf' %>
     </div>
 
     <h1>Connexion</h1>
@@ -23,11 +26,11 @@
     <div>
         <%
             String message = (String)request.getAttribute("message");
-            if(message != null) {
-                %><span>
+        if(message != null) {
+    %><span>
                     <%= message %>
                 </span><%
-            }
+        }
         %>
     </div>
 

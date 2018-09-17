@@ -47,6 +47,59 @@ public class DalTest {
         return listeTest;
 
     }
+    public static void ajouterTest(String libelle , String description, int duree, int seuilHaut, int seuilBas) throws SQLException
+    {
+        Connection cnx=null;
+        PreparedStatement rqt=null;
+        try
+        {
+            cnx=ConnectDB.connect();
+            rqt=cnx.prepareStatement("insert into test(libelle,description,duree,seuil_haut,seuil_bas) values (?,?,?,?,?)");
+            rqt.setString(1,libelle);
+            rqt.setString(2,description);
+            rqt.setInt(3,duree);
+            rqt.setInt(4,seuilHaut);
+            rqt.setInt(5,seuilBas);
+            rqt.executeUpdate();
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if (rqt!=null) rqt.close();
+            if (cnx!=null) cnx.close();
+        }
+
+    }
+
+
+    public static void supprimerTest(int idTest) throws SQLException
+    {
+        Connection cnx=null;
+        PreparedStatement rqt=null;
+
+        try
+        {
+            cnx=ConnectDB.connect();
+            rqt=cnx.prepareStatement("delete from test where idTest=? ");
+            rqt.setInt(1,idTest);
+            rqt.executeUpdate();
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if (rqt!=null) rqt.close();
+            if (cnx!=null) cnx.close();
+        }
+
+    }
 
 
 }
