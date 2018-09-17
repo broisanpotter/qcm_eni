@@ -4,10 +4,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"/>
+	<link rel="stylesheet" href="css/bootstrap.css">
   <title>QCM - Erreur</title>
 </head>
 <body>
-
+<div>
+	<%@ include file='navbar.jspf' %>
+</div>
 <div id="page">
 
 	<div id="entete">

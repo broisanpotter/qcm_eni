@@ -1,0 +1,15 @@
+<%@ page import ="entity.*, java.util.*, java.text.*" %>
+<div id="header">
+    <%
+        String nom = "";
+        String prenom = "";
+
+        if(session.getAttribute("user") != null) {
+            Utilisateur utilisateur = (Utilisateur)session.getAttribute("user");
+            prenom = utilisateur.getPrenom();
+            nom = utilisateur.getNom();
+        }
+    %>
+
+    <h1>Bienvenue sur ce super site de qcm on va super bien rigoler <%= prenom + " " + nom%></h1>
+</div>

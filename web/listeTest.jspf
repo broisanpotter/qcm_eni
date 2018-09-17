@@ -1,16 +1,8 @@
 <%@ page import ="entity.*, java.util.*, java.text.*" %>
-<div id="listeTest">
     <%
         ArrayList<Test> listeTest = (ArrayList<Test>)request.getSession().getAttribute("listeTest");
         for(Test t : listeTest) {
     %>
-    <div class="formation">
-        <table>
-            <tr>
-                <th>Libelle</th>
-                <th>Duree</th>
-                <th>Description</th>
-            </tr>
             <tr>
                 <td><%=t.getIdTest()%></td>
                 <td><%=t.getLibelle() %></td>
@@ -18,8 +10,4 @@
                 <td><%= t.getDescription() %></td>
                 <td> <button id="<%=t.getIdTest()%>">Supprimer</button> </td>
             </tr>
-        </table>
-    </div>
-    <br />
     <% } %>
-</div>
