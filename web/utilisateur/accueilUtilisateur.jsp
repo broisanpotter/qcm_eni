@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="entity.Utilisateur" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: Administrateur
   Date: 14/09/2018
@@ -11,7 +13,33 @@
     <title>Gestion des utilisateurs</title>
 </head>
 <body>
+    <div>
+        <jsp:include page='../header.jsp' />
+    </div>
+
     <h1>Gestion des utilisateurs</h1>
+
+    <h2>Liste des candidats</h2>
+
+    <%
+        if(request.getAttribute("listCollaborateur") != null) {
+
+            ArrayList<Utilisateur> listCollaborateur = (ArrayList<Utilisateur>) request.getAttribute("listCollaborateur");
+
+            for(Utilisateur utilisateur : listCollaborateur){
+                %>
+                <tr>
+                    <td><%=utilisateur.getNom()%></td>
+                    <td><%=utilisateur.getPrenom()%></td>
+                    <td><%=utilisateur.getEmail()%></td>
+                </tr>
+                <%
+            }
+        }
+
+    %>
+
+    <h2>Liste des collaborateurs</h2>
 
 </body>
 </html>

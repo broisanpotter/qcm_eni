@@ -1,8 +1,10 @@
 package entity;
 
+import Dal.DalUser;
+
 import java.util.ArrayList;
 
-public class Utilisateur {
+public class Utilisateur extends DalUser {
 
     Integer idUtilisateur;
     String nom; 
