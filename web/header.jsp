@@ -26,7 +26,7 @@
 
     <% if(session.getAttribute("user") != null) {
         %>
-        <form method="post" action="${pageContext.request.contextPath}/deconnexion">
+        <form method="post" action="http://localhost:8080/deconnexion">
             <input class="btn" type="submit" value="Deconnection">
         </form>
         <%

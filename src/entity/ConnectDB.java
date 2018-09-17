@@ -15,7 +15,7 @@ public class ConnectDB {
         } catch ( ClassNotFoundException e) {
             e.printStackTrace();
         }
-        String url = "jdbc:sqlserver://139-UC50-11;databasename=qcm";
+        String url = "jdbc:sqlserver://localhost;databasename=qcm";
         String utilisateur = "sa";
         String motDePasse = "Pa$$w0rd";
         Connection connexion = null;
@@ -32,10 +32,13 @@ public class ConnectDB {
 
         HttpSession session = request.getSession();
 
-        if(session.getAttribute("id") == null) {
+        if(session.getAttribute("user") != null) {
+            return true;
+        }
+        else {
             return false;
         }
-        return true;
+
     }
 
     public Utilisateur checkUser(String email, String password, Connection connection) {

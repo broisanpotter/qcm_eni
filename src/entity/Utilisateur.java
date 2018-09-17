@@ -1,20 +1,17 @@
 package entity;
 
+import Dal.DalUser;
+
 import java.util.ArrayList;
 
-public class Utilisateur {
+public class Utilisateur extends DalUser {
 
     Integer idUtilisateur;
     String nom; 
     String prenom;
     String email;
     String password;
-
-
     Integer profil;
-
-    
-
     Promotion promotion;
     ArrayList<Epreuve> epreuves;
 

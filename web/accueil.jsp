@@ -28,7 +28,7 @@
 
     <% if(profil == 2) {
         %>
-        <li>Ajouter un candidat</li>
+        <li><a href="http://localhost:8080/accueilUtilisateur">Gestion des candidats et collaborateurs</a></li>
         <li>Consulter les resultats</li>
         <li>Voir les tests</li>
         <%

@@ -60,7 +60,7 @@ public class ServletLogin extends HttpServlet {
         HttpSession session = request.getSession();
 
         if(session.getAttribute("user") != null) {
-            response.sendRedirect("/accueil.jsp");
+            response.sendRedirect("/accueil");
         }
 
         else {
