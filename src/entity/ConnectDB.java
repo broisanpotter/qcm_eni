@@ -32,10 +32,13 @@ public class ConnectDB {
 
         HttpSession session = request.getSession();
 
-        if(session.getAttribute("id") == null) {
+        if(session.getAttribute("user") != null) {
+            return true;
+        }
+        else {
             return false;
         }
-        return true;
+
     }
 
     public Utilisateur checkUser(String email, String password, Connection connection) {
@@ -44,7 +47,7 @@ public class ConnectDB {
         Utilisateur user = null;
 
         try {
-            preparedStatement = connection.prepareStatement("SELECT idUtilisateur, nom, prenom, email, password FROM utilisateur WHERE email = ? and password= ?");
+            preparedStatement = connection.prepareStatement("SELECT idUtilisateur, nom, prenom, email, password, codeProfil FROM utilisateur WHERE email = ? and password= ?");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -58,6 +61,7 @@ public class ConnectDB {
             String prenom = null;
             String mailBdd = null;
             String passwordBdd = null;
+            Integer codeProfilBdd = null;
 
             while(resultSet.next()){
                 idUser = resultSet.getInt("idUtilisateur");
@@ -65,10 +69,11 @@ public class ConnectDB {
                 prenom = resultSet.getString("prenom");
                 mailBdd = resultSet.getString("email");
                 passwordBdd = resultSet.getString("password");
+                codeProfilBdd = resultSet.getInt("codeProfil");
             }
 
             if (email.equals(mailBdd) && password.equals(passwordBdd)){
-                user = new Utilisateur(idUser, nom, prenom,mailBdd,passwordBdd);
+                user = new Utilisateur(idUser, nom, prenom,mailBdd,passwordBdd, codeProfilBdd);
                 return user;
 
             }

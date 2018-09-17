@@ -26,11 +26,11 @@
     <div>
         <%
             String message = (String)request.getAttribute("message");
-            if(message != null) {
-                %><span>
+        if(message != null) {
+    %><span>
                     <%= message %>
                 </span><%
-            }
+        }
         %>
     </div>
 

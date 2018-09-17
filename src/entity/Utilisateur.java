@@ -1,15 +1,17 @@
 package entity;
 
+import Dal.DalUser;
+
 import java.util.ArrayList;
 
-public class Utilisateur {
+public class Utilisateur extends DalUser {
 
     Integer idUtilisateur;
     String nom; 
     String prenom;
     String email;
     String password;
-    Profil profil;
+    Integer profil;
     Promotion promotion;
     ArrayList<Epreuve> epreuves;
 
@@ -21,12 +23,13 @@ public class Utilisateur {
         this.password = password;
     }
 
-    public Utilisateur(Integer idUtilisateur, String nom, String prenom, String email, String password) {
+    public Utilisateur(Integer idUtilisateur, String nom, String prenom, String email, String password, Integer profil) {
         this.idUtilisateur = idUtilisateur;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.password = password;
+        this.profil = profil;
     }
 
     public Integer getIdUtilisateur() {
@@ -68,6 +71,12 @@ public class Utilisateur {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Integer getProfil() {
+        return this.profil;
+    }
+
+
 
     @Override
     public String toString() {
