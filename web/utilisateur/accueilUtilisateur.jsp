@@ -19,6 +19,8 @@
 
     <h1>Gestion des utilisateurs</h1>
 
+    <a href="http://localhost:8080/ajoutUtilisateur">Ajouter un utilisateur</a>
+
     <h2>Liste des collaborateurs</h2>
 
     <%
