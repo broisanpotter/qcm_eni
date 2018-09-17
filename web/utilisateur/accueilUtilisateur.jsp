@@ -19,7 +19,7 @@
 
     <h1>Gestion des utilisateurs</h1>
 
-    <h2>Liste des candidats</h2>
+    <h2>Liste des collaborateurs</h2>
 
     <%
         if(request.getAttribute("listCollaborateur") != null) {
@@ -32,14 +32,35 @@
                     <td><%=utilisateur.getNom()%></td>
                     <td><%=utilisateur.getPrenom()%></td>
                     <td><%=utilisateur.getEmail()%></td>
-                </tr>
+                </tr><br>
                 <%
             }
         }
 
+        %>
+
+        <h2>Liste des candidats</h2>
+
+        <%
+
+        if(request.getAttribute("listCandidat") != null) {
+
+            ArrayList<Utilisateur> listCandidat = (ArrayList<Utilisateur>) request.getAttribute("listCandidat");
+
+            for(Utilisateur utilisateur : listCandidat){
+            %>
+            <tr>
+                <td><%=utilisateur.getNom()%></td>
+                <td><%=utilisateur.getPrenom()%></td>
+                <td><%=utilisateur.getEmail()%></td>
+            </tr>
+            <%
+            }
+        }
     %>
 
-    <h2>Liste des collaborateurs</h2>
+
+
 
 </body>
 </html>

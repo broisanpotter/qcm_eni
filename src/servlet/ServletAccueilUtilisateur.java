@@ -30,11 +30,12 @@ public class ServletAccueilUtilisateur extends HttpServlet {
         else {
             try {
 
-                ArrayList<Utilisateur> listCandidat = (ArrayList<Utilisateur>) DalUser.listerUser(2);
-                ArrayList<Utilisateur> listCollaborateur = (ArrayList<Utilisateur>) DalUser.listerUser(1);
+                ArrayList<Utilisateur> listCandidat = (ArrayList<Utilisateur>) DalUser.listerUser(1);
+                ArrayList<Utilisateur> listCollaborateur = (ArrayList<Utilisateur>) DalUser.listerUser(2);
                 request.setAttribute("listCollaborateur", listCollaborateur);
                 request.setAttribute("listCandidat", listCandidat);
                 request.getRequestDispatcher("utilisateur/accueilUtilisateur.jsp").forward(request, response);
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }

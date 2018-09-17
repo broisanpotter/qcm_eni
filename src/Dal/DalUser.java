@@ -40,7 +40,7 @@ public class DalUser {
             if (rqt!=null) rqt.close();
             if (cnx!=null) cnx.close();
         }
-
+        System.out.println("out query");
         return listeUser;
 
     }
