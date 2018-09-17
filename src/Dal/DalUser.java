@@ -27,6 +27,7 @@ public class DalUser {
 
             while (rs.next()){
                 Utilisateur user = new Utilisateur();
+                user.setIdUtilisateur(rs.getInt("idUtilisateur"));
                 user.setNom(rs.getString("nom"));
                 user.setEmail(rs.getString("email"));
                 user.setPrenom(rs.getString("prenom"));
