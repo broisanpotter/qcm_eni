@@ -10,35 +10,57 @@
 <html>
 <head>
     <title>test</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <div>
     <%@ include file='navbar.jspf' %>
 </div>
 
-    <div>
-        <%@ include file='header.jspf' %>
-    </div>
+<div>
+    <%@ include file='header.jspf' %>
+</div>
 
-    <h1>Connexion</h1>
 
-    <div>
-        <%
-            String message = (String)request.getAttribute("message");
-        if(message != null) {
-    %><span>
+
+<body id="LoginForm">
+<div class="container">
+    <h1 class="form-heading">Connexion</h1>
+    <div class="login-form">
+        <div class="main-div">
+            <div class="panel">
+                <p>Entrez votre email et votre mot de passe</p>
+            </div>
+            <%
+                String message = (String)request.getAttribute("message");
+                if(message != null) {
+            %><span>
                     <%= message %>
                 </span><%
-        }
+            }
         %>
+
+            <form id="Login" method="post">
+
+                <div class="form-group">
+
+
+                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email Address">
+
+                </div>
+
+                <div class="form-group">
+
+                    <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+
+            </form>
+        </div>
     </div>
-
-    <form method="post">
-        <input type="email" name="email">
-        <input type="password" name="password">
-        <input type="submit">
-    </form>
-
+</div>
 </body>
 </html>

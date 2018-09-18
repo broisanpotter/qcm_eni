@@ -32,7 +32,7 @@
             </li>
             <%
             }
-            else {
+            else if(profil == 1){
             %>
             <li class="nav-item active">
                 <a class="nav-link" href="/test">Passer un test </a>
@@ -45,7 +45,10 @@
             </li>
             <%
                 }
-            %>
+                else {
+                }
+                %>
+
         </ul>
 
 
