@@ -1,7 +1,9 @@
 package servlet;
 
+import Dal.DalPromotion;
 import Dal.DalUser;
 import entity.ConnectDB;
+import entity.Promotion;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet(name = "ServletAjoutUtilisateur", urlPatterns = "/ajoutUtilisateur")
 public class ServletAjoutUtilisateur extends HttpServlet {
@@ -40,7 +43,16 @@ public class ServletAjoutUtilisateur extends HttpServlet {
         }
 
         else {
-            request.getRequestDispatcher("utilisateur/ajoutUtilisateur.jsp").forward(request, response);
+            try {
+                ArrayList<Promotion> listPromotion = DalPromotion.getAllPromotion();
+
+                if(listPromotion != null) {
+                    request.setAttribute("listPromotion", listPromotion);
+                    request.getRequestDispatcher("utilisateur/ajoutUtilisateur.jsp").forward(request, response);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

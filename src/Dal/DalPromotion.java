@@ -14,7 +14,6 @@ public class DalPromotion {
 
 
     public static ArrayList<Promotion> getAllPromotion() throws SQLException {
-
         ArrayList<Promotion> listPromotion = new ArrayList<>();
 
         Connection cnx = null;
@@ -27,7 +26,7 @@ public class DalPromotion {
             rqt = cnx.prepareStatement(selectPromotion);
             rs=rqt.executeQuery();
 
-            if (rs.next()){
+            while(rs.next()){
                 Promotion promotion = new Promotion();
                 promotion.setCodePromo(rs.getString("codePromo"));
                 promotion.setLibelle(rs.getString("Libelle"));

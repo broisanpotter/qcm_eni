@@ -42,7 +42,23 @@
         <input type="email" name="email" placeholder="email"><br>
         <input type="text" name="password" placeholder="mot de passe"><br>
         <input type="text" name="statut" placeholder="statut"><br>
-        <input type="text" name="promo" placeholder="code Promo"><br>
+        <SELECT name="superPromo" size="1">
+        <%
+        if(request.getAttribute("listPromotion") != null) {
+
+                ArrayList<Promotion> listPromotion = (ArrayList<Promotion>) request.getAttribute("listPromotion");
+
+                for(Promotion promotion : listPromotion){
+                    %>
+                    <OPTION><%= promotion.getLibelle() %>
+                    <input type="hidden" name="promo" value="<%= promotion.getCodePromo() %>">
+                    <%
+                }
+            }
+        %>
+        </SELECT>
+
+        <br>
         <input type="submit">
 
     </form>

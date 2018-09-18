@@ -44,7 +44,6 @@ public class DalUser {
 
     public static void ajouterUser(String nom , String prenom,String email, String password, int profil, String promo) throws SQLException
     {
-        System.out.println("inside ajout user");
         Connection cnx=null;
         PreparedStatement rqt=null;
         try
@@ -57,12 +56,6 @@ public class DalUser {
             rqt.setString(4,password);
             rqt.setInt(5,profil);
             rqt.setString(6,promo);
-            System.out.println("nom " + nom);
-            System.out.println("nom " + prenom);
-            System.out.println("nom " + email);
-            System.out.println("nom " + password);
-            System.out.println("nom " + profil);
-            System.out.println("nom " + promo);
             rqt.executeUpdate();
 
         }
