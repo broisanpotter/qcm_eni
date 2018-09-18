@@ -2,18 +2,12 @@ package entity;
 
 public class SectionTest {
 
-    Integer idSectionTest;
     Integer nbQuestionsATirer;
 
-    Test test;
-    Theme theme;
+    Integer idTest;
+    Integer idTheme;
 
     public SectionTest() {
-    }
-
-    public SectionTest(Integer idSectionTest, Integer nbQuestionsATirer) {
-        this.idSectionTest = idSectionTest;
-        this.nbQuestionsATirer = nbQuestionsATirer;
     }
 
     public Integer getNbQuestionsATirer() {
@@ -24,19 +18,19 @@ public class SectionTest {
         this.nbQuestionsATirer = nbQuestionsATirer;
     }
 
-    public Test getTest() {
-        return test;
+    public Integer getIdTest() {
+        return idTest;
     }
 
-    public void setTest(Test test) {
-        this.test = test;
+    public void setIdTest(Integer idTest) {
+        this.idTest = idTest;
     }
 
-    public Theme getTheme() {
-        return theme;
+    public Integer getIdTheme() {
+        return idTheme;
     }
 
-    public void setTheme(Theme theme) {
-        this.theme = theme;
+    public void setIdTheme(Integer idTheme) {
+        this.idTheme = idTheme;
     }
 }

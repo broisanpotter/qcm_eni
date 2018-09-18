@@ -3,10 +3,7 @@ package Dal;
 import entity.ConnectDB;
 import entity.Epreuve;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DalEpreuve {
@@ -74,27 +71,34 @@ public class DalEpreuve {
         return epreuvesListe;
     }
 
-    public static Epreuve setEpreuve(Epreuve epreuve) throws SQLException{
+    public static Integer setEpreuve(Epreuve epreuve) throws SQLException{
 
         Connection cnx = null;
         PreparedStatement rqt = null;
         ResultSet rs = null;
+        Integer idGenere = null;
         try{
 
             cnx = ConnectDB.connect();
-            rqt = cnx.prepareStatement(insertEpreuve);
+            rqt = cnx.prepareStatement(insertEpreuve, Statement.RETURN_GENERATED_KEYS);
             rqt.setDate(1, epreuve.getDateDebutValidite());
             rqt.setDate(2, epreuve.getDateFinValidite());
             rqt.setString(3, epreuve.getEtat());
             rqt.setInt(4, epreuve.getIdTest());
             rqt.setInt(5, epreuve.getIdUtilisateur());
-            rs=rqt.executeQuery();
+            rqt.executeUpdate();
+            rs = rqt.getGeneratedKeys();
+            if(rs != null && rs.next()){
+
+                idGenere = (int)rs.getLong(1);
+            }
+
         }finally{
 
             if (rs!=null) rs.close();
             if (rqt!=null) rqt.close();
             if (cnx!=null) cnx.close();
         }
-        return epreuve;
+        return idGenere;
     }
 }

@@ -2,18 +2,18 @@ package Dal;
 
 import entity.ConnectDB;
 import entity.Epreuve;
+import entity.Question;
 import entity.QuestionTirage;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DalQuestionTirage {
 
     static String selectQuestionsTirageListe = "select * from questiontirage where idEpreuve = ?";
     static String selectQuestionTirage = "select * from questiontirage where idEpreuve = ? and idQuestion = ?";
+
+    static String insertQuestionTirage = "insert into question_tirage (estMarquee, idQuestion, numordre, idEpreuve) values (?, ?, ?, ?)";
 
     public static ArrayList<QuestionTirage> getQuestionsTirageListe(Integer idEpreuve) throws SQLException {
 
@@ -32,7 +32,7 @@ public class DalQuestionTirage {
                 QuestionTirage question = new QuestionTirage();
                 question.setIdEpreuve(rs.getInt("idEpreuve"));
                 question.setIdQuestion(rs.getInt("idQuestion"));
-                question.setEstMarquee(rs.getString("estMarquee"));
+                question.setEstMarquee(rs.getBoolean("estMarquee"));
                 question.setNumOrdre(rs.getInt("numOrdre"));
                 questionsTirageListe.add(question);
 
@@ -64,7 +64,7 @@ public class DalQuestionTirage {
                 QuestionTirage question = new QuestionTirage();
                 question.setIdEpreuve(rs.getInt("idEpreuve"));
                 question.setIdQuestion(rs.getInt("idQuestion"));
-                question.setEstMarquee(rs.getString("estMarquee"));
+                question.setEstMarquee(rs.getBoolean("estMarquee"));
                 question.setNumOrdre(rs.getInt("numOrdre"));
 
             }
@@ -75,5 +75,27 @@ public class DalQuestionTirage {
             if (cnx != null) cnx.close();
         }
         return questionTirage;
+    }
+
+    public static void setQuestionTirage(QuestionTirage questionTirage) throws SQLException {
+
+        Connection cnx = null;
+        PreparedStatement rqt = null;
+        ResultSet rs = null;
+        try {
+
+            cnx = ConnectDB.connect();
+            rqt = cnx.prepareStatement(insertQuestionTirage);
+            rqt.setBoolean(1, questionTirage.getEstMarquee());
+            rqt.setInt(2, questionTirage.getIdQuestion());
+            rqt.setInt(3, questionTirage.getNumOrdre());
+            rqt.setInt(4, questionTirage.getIdEpreuve());
+            rqt.execute();
+        } finally {
+
+            if (rs != null) rs.close();
+            if (rqt != null) rqt.close();
+            if (cnx != null) cnx.close();
+        }
     }
 }
