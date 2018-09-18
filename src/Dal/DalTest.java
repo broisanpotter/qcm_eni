@@ -14,9 +14,9 @@ public class DalTest {
      * @return La liste peut être vide mais jamais <code>null</code>
      * @throws SQLException
      */
-    public static List<Test> lister() throws SQLException {
+    public static ArrayList<Test> lister() throws SQLException {
 
-        List<Test> listeTest = new ArrayList<Test>();
+        ArrayList<Test> listeTest = new ArrayList<Test>();
 
         Connection cnx = null;
         PreparedStatement rqt = null;
@@ -47,7 +47,7 @@ public class DalTest {
         return listeTest;
 
     }
-    public static void ajouterTest(String libelle , String description, int duree, int seuilHaut, int seuilBas) throws SQLException
+    public static void ajouterTest(Test test) throws SQLException
     {
         Connection cnx=null;
         PreparedStatement rqt=null;
@@ -55,11 +55,11 @@ public class DalTest {
         {
             cnx=ConnectDB.connect();
             rqt=cnx.prepareStatement("insert into test(libelle,description,duree,seuil_haut,seuil_bas) values (?,?,?,?,?)");
-            rqt.setString(1,libelle);
-            rqt.setString(2,description);
-            rqt.setInt(3,duree);
-            rqt.setInt(4,seuilHaut);
-            rqt.setInt(5,seuilBas);
+            rqt.setString(1,test.getLibelle());
+            rqt.setString(2,test.getDescription());
+            rqt.setInt(3,test.getDuree());
+            rqt.setInt(4,test.getSeuilHaut());
+            rqt.setInt(5,test.getSeuilBas());
             rqt.executeUpdate();
 
         }
@@ -76,7 +76,7 @@ public class DalTest {
     }
 
 
-    public static void supprimerTest(int idTest) throws SQLException
+    public static void supprimerTest(Test test) throws SQLException
     {
         Connection cnx=null;
         PreparedStatement rqt=null;
@@ -85,7 +85,7 @@ public class DalTest {
         {
             cnx=ConnectDB.connect();
             rqt=cnx.prepareStatement("delete from test where idTest=? ");
-            rqt.setInt(1,idTest);
+            rqt.setInt(1,test.getIdTest());
             rqt.executeUpdate();
 
         }
@@ -101,5 +101,25 @@ public class DalTest {
 
     }
 
+    public static void modifier(Test test) throws SQLException{
+        Connection cnx=null;
+        PreparedStatement rqt=null;
+        try{
+            cnx=ConnectDB.connect();
+            rqt=cnx.prepareStatement("update test set libelle = ?, description = ?, duree = ?, seuil_haut = ?, seuil_bas = ? where idTest = ?");
+            rqt.setString(1, test.getLibelle());
+            rqt.setString(2,test.getDescription());
+            rqt.setInt(3,test.getDuree());
+            rqt.setInt(4,test.getSeuilHaut());
+            rqt.setInt(5,test.getSeuilBas());
+            rqt.setInt(6, test.getIdTest());
 
+            rqt.executeUpdate();
+        }finally{
+            if (rqt!=null) rqt.close();
+            if (cnx!=null) cnx.close();
+        }
+
+
+    }
 }

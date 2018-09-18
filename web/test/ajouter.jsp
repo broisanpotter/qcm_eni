@@ -5,6 +5,7 @@
   Time: 09:45
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="entity.Utilisateur" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,32 +17,38 @@
         #content{text-align: center; padding: 5px; border: 1px solid; border-radius: 10px}
         body{width: 900px;  margin: auto}
     </style>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
+<div>
+    <%@ include file='/navbar.jspf' %>
+</div>
     <div id="content">
         <h1>Ajouter un test</h1>
-        <form method="post" action="http://localhost:8080/test/ajouter">
+        <jsp:useBean id="testCourant" class="entity.Test" scope="session" />
+        <form method="post" action="<%=request.getContextPath() %>/test">
             <div>
                 <label>Libellé :</label>
-                <input type="text" name="libelle">
+                <input type="text" name="tLibelle" >
             </div>
             <div>
                 <label>Description :</label>
-                <input type="text" name="description">
+                <input type="text" name="tDescription" >
             </div>
             <div>
                 <label>Durée :</label>
-                <input type="text" name="duree">
+                <input type="text" name="tDuree" >
             </div>
             <div>
                 <label>Seuil haut :</label>
-                <input type="text" name="seuilHaut">
+                <input type="text" name="tSeuilHaut" >
             </div>
             <div>
                 <label>Seuil bas :</label>
-                <input type="text" name="seuilBas">
+                <input type="text" name="tSeuilBas" >
             </div>
-            <button>Valider</button>
+            <button type="submit" name="bEnregistrer" value="Enregistrer">Enregistrer</button>
         </form>
     </div>
 </body>
