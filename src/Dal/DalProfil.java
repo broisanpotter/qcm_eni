@@ -1,7 +1,7 @@
 package Dal;
 
 import entity.ConnectDB;
-import entity.Promotion;
+import entity.Profil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,10 +11,11 @@ import java.util.ArrayList;
 
 public class DalProfil {
 
-    static String selectPromotion = "select * from profil";
+    static String selectProfil = "select * from profil";
 
-    public static ArrayList<Profil> getAllPromotion() throws SQLException {
-        ArrayList<Promotion> listPromotion = new ArrayList<>();
+    public static ArrayList<Profil> getAllProfil() throws SQLException {
+
+        ArrayList<Profil> listProfil = new ArrayList<>();
 
         Connection cnx = null;
         PreparedStatement rqt = null;
@@ -23,14 +24,14 @@ public class DalProfil {
         try{
 
             cnx = ConnectDB.connect();
-            rqt = cnx.prepareStatement(selectPromotion);
+            rqt = cnx.prepareStatement(selectProfil);
             rs=rqt.executeQuery();
 
             while(rs.next()){
-                Promotion promotion = new Promotion();
-                promotion.setCodePromo(rs.getString("codePromo"));
-                promotion.setLibelle(rs.getString("Libelle"));
-                listPromotion.add(promotion);
+                Profil profil = new Profil();
+                profil.setCodeProfil(rs.getInt("codeProfil"));
+                profil.setLibelle(rs.getString("libelle"));
+                listProfil.add(profil);
             }
         }finally{
 
@@ -38,6 +39,6 @@ public class DalProfil {
             if (rqt!=null) rqt.close();
             if (cnx!=null) cnx.close();
         }
-        return listPromotion;
+        return listProfil;
     }
 }
