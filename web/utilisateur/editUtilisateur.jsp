@@ -31,12 +31,12 @@
     <%
         if(request.getAttribute("user") != null) {
             Utilisateur user = (Utilisateur) request.getAttribute("user");
-            System.out.println(user.getPrenom());
         %>
             <form action="/editUtilisateur" method="post">
                 <input type="text" name="prenom" value="<%= user.getPrenom() %>"><br>
                 <input type="text" name="nom" value="<%= user.getNom() %>"><br>
                 <input type="email" name="email" value="<%= user.getEmail() %>"><br>
+                <input type="hidden" name="id" value="<%= user.getIdUtilisateur() %>">
 
                 <SELECT name="statut" size="1">
                     <%
