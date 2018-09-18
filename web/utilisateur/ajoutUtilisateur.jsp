@@ -41,7 +41,22 @@
         <input type="text" name="nom" placeholder="Nom"><br>
         <input type="email" name="email" placeholder="email"><br>
         <input type="text" name="password" placeholder="mot de passe"><br>
-        <input type="text" name="statut" placeholder="statut"><br>
+
+        <SELECT name="statut" size="1">
+            <%
+                if(request.getAttribute("listProfil") != null) {
+
+                    ArrayList<Profil> listProfil = (ArrayList<Profil>) request.getAttribute("listProfil");
+
+                    for(Profil pro : listProfil){
+                        %>
+                        <OPTION value="<%= pro.getCodeProfil() %>"><%= pro.getLibelle() %></OPTION>
+                        <%
+                    }
+                }
+            %>
+        </SELECT><br>
+
         <SELECT name="promo" size="1">
         <%
         if(request.getAttribute("listPromotion") != null) {
@@ -55,9 +70,7 @@
                 }
             }
         %>
-        </SELECT>
-
-        <br>
+        </SELECT><br>
         <input type="submit">
 
     </form>

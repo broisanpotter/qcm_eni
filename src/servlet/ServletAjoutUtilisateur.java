@@ -1,8 +1,10 @@
 package servlet;
 
+import Dal.DalProfil;
 import Dal.DalPromotion;
 import Dal.DalUser;
 import entity.ConnectDB;
+import entity.Profil;
 import entity.Promotion;
 
 import javax.servlet.ServletException;
@@ -18,7 +20,6 @@ import java.util.ArrayList;
 public class ServletAjoutUtilisateur extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("inside the post");
 
         if (request.getParameter("prenom").isEmpty() || request.getParameter("nom").isEmpty() || request.getParameter("email").isEmpty() || request.getParameter("password").isEmpty() || request.getParameter("statut").isEmpty() || request.getParameter("promo").isEmpty() ) {
             String missInfoMessage = "Il manque des infos mais je te dirais pas ou !!";
@@ -45,9 +46,11 @@ public class ServletAjoutUtilisateur extends HttpServlet {
         else {
             try {
                 ArrayList<Promotion> listPromotion = DalPromotion.getAllPromotion();
+                ArrayList<Profil> listProfil = DalProfil.getAllProfil();
 
-                if(listPromotion != null) {
+                if(listPromotion != null && listProfil != null) {
                     request.setAttribute("listPromotion", listPromotion);
+                    request.setAttribute("listProfil", listProfil);
                     request.getRequestDispatcher("utilisateur/ajoutUtilisateur.jsp").forward(request, response);
                 }
             } catch (SQLException e) {
