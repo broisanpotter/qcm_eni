@@ -5,16 +5,28 @@ public class Test {
     Integer idTest;
     String libelle;
     String description;
-    Double duree;
-    Double seuilHaut;
-    Double seuilBas;
+    Integer duree;
+    Integer seuilHaut;
+    Integer seuilBas;
 
-    public String getDescription() {
-        return description;
+    public Test() {
     }
 
-    public void setDescription(String description) {
+    public Test(Integer idTest, String libelle, String description, Integer duree, Integer seuilHaut, Integer seuilBas) {
+        this.idTest = idTest;
+        this.libelle = libelle;
         this.description = description;
+        this.duree = duree;
+        this.seuilHaut = seuilHaut;
+        this.seuilBas = seuilBas;
+    }
+
+    public Integer getIdTest() {
+        return idTest;
+    }
+
+    public void setIdTest(Integer idTest) {
+        this.idTest = idTest;
     }
 
     public String getLibelle() {
@@ -25,35 +37,35 @@ public class Test {
         this.libelle = libelle;
     }
 
-    public Double getDuree() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getDuree() {
         return duree;
     }
 
-    public void setDuree(Double duree) {
+    public void setDuree(Integer duree) {
         this.duree = duree;
     }
 
-    public Double getSeuilHaut() {
+    public Integer getSeuilHaut() {
         return seuilHaut;
     }
 
-    public void setSeuilHaut(Double seuilHaut) {
+    public void setSeuilHaut(Integer seuilHaut) {
         this.seuilHaut = seuilHaut;
     }
 
-    public Double getSeuilBas() {
+    public Integer getSeuilBas() {
         return seuilBas;
     }
 
-    public void setSeuilBas(Double seuilBas) {
+    public void setSeuilBas(Integer seuilBas) {
         this.seuilBas = seuilBas;
-    }
-
-    public Integer getIdTest() {
-        return idTest;
-    }
-
-    public void setIdTest(Integer idTest) {
-        this.idTest = idTest;
     }
 }
