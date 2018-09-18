@@ -42,7 +42,7 @@
         <input type="email" name="email" placeholder="email"><br>
         <input type="text" name="password" placeholder="mot de passe"><br>
         <input type="text" name="statut" placeholder="statut"><br>
-        <SELECT name="superPromo" size="1">
+        <SELECT name="promo" size="1">
         <%
         if(request.getAttribute("listPromotion") != null) {
 
@@ -50,8 +50,7 @@
 
                 for(Promotion promotion : listPromotion){
                     %>
-                    <OPTION><%= promotion.getLibelle() %>
-                    <input type="hidden" name="promo" value="<%= promotion.getCodePromo() %>">
+                    <OPTION value="<%= promotion.getCodePromo() %>"><%= promotion.getLibelle() %></OPTION>
                     <%
                 }
             }

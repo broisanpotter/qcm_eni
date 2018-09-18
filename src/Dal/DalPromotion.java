@@ -12,7 +12,6 @@ public class DalPromotion {
 
     static String selectPromotion = "select * from promotion";
 
-
     public static ArrayList<Promotion> getAllPromotion() throws SQLException {
         ArrayList<Promotion> listPromotion = new ArrayList<>();
 
