@@ -1,3 +1,7 @@
+<%@ page import="java.util.List" %>
+<%@ page import="entity.Utilisateur" %>
+<%@ page import="java.util.ArrayList" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: Administrateur
@@ -9,13 +13,17 @@
 <html>
 <head>
     <title>Ajout Utilsateur</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
     <div>
-        <jsp:include page='../header.jsp' />
+        <%@ include file='../navbar.jspf' %>
+    </div>
+    <div>
+        <%@ include file='../header.jspf' %>
     </div>
 
-    <h1>Création d'un utilisateur</h1>
+    <h1>Création d'un Compte</h1>
 
     <div>
         <%

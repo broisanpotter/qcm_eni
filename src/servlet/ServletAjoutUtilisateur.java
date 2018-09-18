@@ -23,10 +23,9 @@ public class ServletAjoutUtilisateur extends HttpServlet {
             request.getRequestDispatcher("utilisateur/ajoutUtilisateur.jsp").forward(request, response);
         }
         else {
-            int promo = Integer.parseInt(request.getParameter("promo"));
             int statut = Integer.parseInt(request.getParameter("statut"));
             try {
-                DalUser.ajouterUser(request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("email"), request.getParameter("password"), promo,statut);
+                DalUser.ajouterUser(request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("email"), request.getParameter("password"), statut,request.getParameter("promo"));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
