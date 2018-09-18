@@ -30,6 +30,7 @@ public class ServletAjoutUtilisateur extends HttpServlet {
             int statut = Integer.parseInt(request.getParameter("statut"));
             try {
                 DalUser.ajouterUser(request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("email"), request.getParameter("password"), statut,request.getParameter("promo"));
+                response.sendRedirect("/accueilUtilisateur");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
