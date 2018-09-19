@@ -133,7 +133,7 @@ public class DalUser {
     }
 
 
-    public static void supprimerUser(String email) throws SQLException
+    public static void supprimerUser(int id) throws SQLException
     {
         Connection cnx=null;
         PreparedStatement rqt=null;
@@ -141,10 +141,9 @@ public class DalUser {
         try
         {
             cnx=ConnectDB.connect();
-            rqt=cnx.prepareStatement("delete from  utilisateur where email=? ");
-            rqt.setString(1,email);
+            rqt=cnx.prepareStatement("delete from  utilisateur where idUtilisateur=? ");
+            rqt.setInt(1,id);
             rqt.executeUpdate();
-
         }
         catch (Exception e)
         {
