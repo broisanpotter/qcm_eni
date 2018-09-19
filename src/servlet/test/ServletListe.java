@@ -39,7 +39,7 @@ public class ServletListe extends HttpServlet {
             return;
         }
         request.getSession().setAttribute("listeTest", listeTest);
-        dispatcher = request.getRequestDispatcher("/test/liste.jsp");
+        dispatcher = request.getRequestDispatcher("/listeTest.jsp");
         dispatcher.forward(request, response);
 
     }

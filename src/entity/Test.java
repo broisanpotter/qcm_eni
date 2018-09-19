@@ -12,6 +12,10 @@ public class Test {
     public Test() {
     }
 
+    public Test(Integer idTest) {
+        this.idTest = idTest;
+    }
+
     public Test(Integer idTest, String libelle, String description, Integer duree, Integer seuilHaut, Integer seuilBas) {
         this.idTest = idTest;
         this.libelle = libelle;
@@ -20,6 +24,7 @@ public class Test {
         this.seuilHaut = seuilHaut;
         this.seuilBas = seuilBas;
     }
+
 
     public Integer getIdTest() {
         return idTest;

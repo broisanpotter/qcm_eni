@@ -1,13 +1,19 @@
 <%@ page import ="entity.*, java.util.*, java.text.*" %>
+<form id="gestionTest" action="<%=request.getContextPath()%>/test" method="post">
     <%
         ArrayList<Test> listeTest = (ArrayList<Test>)request.getSession().getAttribute("listeTest");
+        int index = 0;
         for(Test t : listeTest) {
     %>
             <tr>
-                <td><%=t.getIdTest()%></td>
                 <td><%=t.getLibelle() %></td>
                 <td> <%= t.getDuree()%></td>
                 <td><%= t.getDescription() %></td>
-                <td> <button id="<%=t.getIdTest()%>">Supprimer</button> </td>
+                <td> <button type="submit" name="bSupprimer_<%=index%>">Supprimer</button> </td>
+                <td> <button type="submit" name="bModifier_<%=index%>">Modifier</button> </td>
             </tr>
-    <% } %>
+    <%
+            index++;} %>
+
+    <input type="submit" name="bAjouter" value="Ajouter"/>
+</form>
