@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class QuestionTirage {
 
-    String estMarquee;
+    Boolean estMarquee;
     Integer numOrdre;
     Integer idEpreuve;
     Integer idQuestion;
@@ -12,11 +12,11 @@ public class QuestionTirage {
     public QuestionTirage() {
     }
 
-    public String getEstMarquee() {
+    public Boolean getEstMarquee() {
         return estMarquee;
     }
 
-    public void setEstMarquee(String estMarquee) {
+    public void setEstMarquee(Boolean estMarquee) {
         this.estMarquee = estMarquee;
     }
 

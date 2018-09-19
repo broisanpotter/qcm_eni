@@ -2,6 +2,7 @@ package Dal;
 
 import entity.ConnectDB;
 import entity.Question;
+import entity.Test;
 
 
 import java.sql.*;
@@ -94,6 +95,40 @@ public class DalQuestion {
             if (cnx!=null) cnx.close();
         }
 
+    }
+
+    public static ArrayList<Question> getQuestionByTheme(Test test) throws SQLException {
+
+        ArrayList<Question> QuestionsListe = new ArrayList<Question>();
+        Connection cnx = null;
+        PreparedStatement rqt = null;
+        ResultSet rs = null;
+
+        try{
+
+            cnx = ConnectDB.connect();
+            rqt = cnx.prepareStatement("select * from question as q inner join section_test as s on q.idTheme = s.idTheme where idTest = ?");
+            rqt.setInt(1, test.getIdTest());
+            rs=rqt.executeQuery();
+
+            while (rs.next()){
+
+                Question quest = new Question();
+                quest.setIdQuestion(rs.getInt(("idQuestion")));
+                quest.setEnonce(rs.getString("enonce"));
+                quest.setMedia(rs.getString("media"));
+                quest.setPoints(rs.getInt("points"));
+                quest.setIdTheme(rs.getInt("idTheme"));
+
+                QuestionsListe.add(quest);
+            }
+        }finally{
+
+            if (rs!=null) rs.close();
+            if (rqt!=null) rqt.close();
+            if (cnx!=null) cnx.close();
+        }
+        return QuestionsListe;
     }
 
 }
