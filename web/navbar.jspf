@@ -33,16 +33,16 @@
             </li>
             <%
             }
-            else if(profil == 1){
+            else if(profil == 2){
             %>
             <li class="nav-item active">
-                <a class="nav-link" href="/test">Passer un test </a>
+                <a class="nav-link" href="/epreuve">Passer une epreuve </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Reprendre un test</a>
+                <a class="nav-link" href="">Reprendre une epreuve</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Consulter ses résultats</a>
+                <a class="nav-link" href="#">Consulter mes résultats</a>
             </li>
             <%
                 }
