@@ -1,3 +1,4 @@
+<%@ page import="entity.Utilisateur" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/accueil">QCM</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,11 +29,11 @@
                 <a class="nav-link" href="#">Consulter les resultats</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/test">Voir les tests</a>
+                <a class="  nav-link" href="/test">Voir les tests</a>
             </li>
             <%
             }
-            else {
+            else if(profil == 1){
             %>
             <li class="nav-item active">
                 <a class="nav-link" href="/test">Passer un test </a>
@@ -45,7 +46,10 @@
             </li>
             <%
                 }
-            %>
+                else {
+                }
+                %>
+
         </ul>
 
 
