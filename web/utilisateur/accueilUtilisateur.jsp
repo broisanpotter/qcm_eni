@@ -39,7 +39,7 @@
 
     <a href="/ajoutUtilisateur">Ajouter un utilisateur</a>
 
-    <h2>Liste des collaborateurs</h2>
+    <h2>Liste des candidats</h2>
 
     <table class="table">
         <tr>
@@ -58,7 +58,7 @@
                     <td><%=utilisateur.getNom()%></td>
                     <td><%=utilisateur.getPrenom()%></td>
                     <td><%=utilisateur.getEmail()%></td>
-                    <td><a href="/editUtilisateur?id=<%= utilisateur.getIdUtilisateur()%>">Supprimer</a></td>
+                    <td><a href="/deleteUtilisateur?id=<%= utilisateur.getIdUtilisateur()%>">Supprimer</a></td>
                     <td><a href="/editUtilisateur?id=<%=utilisateur.getIdUtilisateur()%>">Modifier</a></td>
                 </tr>
                 <%
@@ -67,33 +67,33 @@
 
         %>
     </table>
-        <h2>Liste des candidats</h2>
+        <h2>Liste des collaborateurs</h2>
 
-<table class="table">
-    <tr>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Email</th>
-    </tr>
-        <%
-
-        if(request.getAttribute("listCandidat") != null) {
-
-            ArrayList<Utilisateur> listCandidat = (ArrayList<Utilisateur>) request.getAttribute("listCandidat");
-
-            for(Utilisateur utilisateur : listCandidat){
-            %>
-            <tr>
-                <td><%=utilisateur.getNom()%></td>
-                <td><%=utilisateur.getPrenom()%></td>
-                <td><%=utilisateur.getEmail()%></td>
-                <td><a href="/editUtilisateur?id=<%= utilisateur.getIdUtilisateur()%>">Supprimer</a></td>
-                <td><a href="/editUtilisateur?id=<%=utilisateur.getIdUtilisateur()%>">Modifier</a></td>
-            </tr>
+    <table class="table">
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+        </tr>
             <%
+
+            if(request.getAttribute("listCandidat") != null) {
+
+                ArrayList<Utilisateur> listCandidat = (ArrayList<Utilisateur>) request.getAttribute("listCandidat");
+
+                for(Utilisateur utilisateur : listCandidat){
+                %>
+                <tr>
+                    <td><%=utilisateur.getNom()%></td>
+                    <td><%=utilisateur.getPrenom()%></td>
+                    <td><%=utilisateur.getEmail()%></td>
+                    <td><a href="/deleteUtilisateur?id=<%= utilisateur.getIdUtilisateur()%>">Supprimer</a></td>
+                    <td><a href="/editUtilisateur?id=<%=utilisateur.getIdUtilisateur()%>">Modifier</a></td>
+                </tr>
+                <%
+                }
             }
-        }
-    %>
+        %>
     </table>
 
 
