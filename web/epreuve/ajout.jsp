@@ -9,6 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <title>Ajout d'une epreuve à un candidat</title>
     <style>
         .error{
@@ -36,6 +37,9 @@
     </style>
 </head>
 <body>
+    <div>
+        <%@ include file='/navbar.jspf' %>
+    </div>
     <div style="margin: auto; width: 900px;text-align: center">
         <div class="${codeMessage}">
                 ${message}

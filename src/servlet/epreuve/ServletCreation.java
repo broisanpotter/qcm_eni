@@ -55,6 +55,24 @@ public class ServletCreation extends HttpServlet {
                 }
                 message = message + "Il manque une date.";
             }
+            else{
+                if (dateDebutValidite.compareTo(dateFinValidite) == 1) {
+
+                    formulaireNonCorrect = true;
+                    if (message.length() > 0) {
+                        message = message + "<br>";
+                    }
+                    message = message + "La date de fin doit être supérieur a la date de bébut.";
+                }
+                if(dateDebutValidite.compareTo(date) <= 0){
+
+                    formulaireNonCorrect = true;
+                    if (message.length() > 0) {
+                        message = message + "<br>";
+                    }
+                    message = message + "La date de debut doit être supèrieur ou egal à la date du jour..";
+                }
+            }
 
             if (formulaireNonCorrect) {
 
