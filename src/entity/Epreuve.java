@@ -1,6 +1,9 @@
 package entity;
 
+import Dal.DalTest;
+
 import java.sql.Date;
+import java.sql.SQLException;
 
 public class Epreuve {
 
@@ -11,8 +14,8 @@ public class Epreuve {
     String etat;
     Double note_obtenue;
     String niveau_obtenu;
-
     Integer idTest;
+    Test test;
     Integer idUtilisateur;
 
     public Epreuve(Integer idEpreuve, Date dateDebutValidite, Date dateFinValidite, Integer tempsEcoule, String etat, Double note_obtenue, String niveau_obtenu) {
@@ -98,5 +101,20 @@ public class Epreuve {
 
     public void setIdUtilisateur(Integer idUtilisateur) {
         this.idUtilisateur = idUtilisateur;
+    }
+
+    public Test getTest() {
+        if(this.test == null){
+            try {
+                this.test = DalTest.getTest(this.idTest);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
     }
 }
