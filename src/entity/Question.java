@@ -1,6 +1,10 @@
 package entity;
 
+import Dal.DalProposition;
+
 import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Question {
 
@@ -9,6 +13,7 @@ public class Question {
     String media;
     int points;
     int  idTheme;
+    ArrayList<Proposition> propositionsListe;
 
 
     public Question() {
@@ -79,5 +84,20 @@ public class Question {
 
     public void setIdTheme(int idTheme) {
         this.idTheme = idTheme;
+    }
+
+    public ArrayList<Proposition> getPropositionsListe() {
+        if(this.propositionsListe == null){
+            try {
+                this.propositionsListe = DalProposition.promotionsByQuestion(this.getIdQuestion());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return propositionsListe;
+    }
+
+    public void setPropositionsListe(ArrayList<Proposition> propositionsListe) {
+        this.propositionsListe = propositionsListe;
     }
 }

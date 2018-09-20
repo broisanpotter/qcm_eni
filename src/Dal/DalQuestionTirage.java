@@ -10,14 +10,14 @@ import java.util.ArrayList;
 
 public class DalQuestionTirage {
 
-    static String selectQuestionsTirageListe = "select * from questiontirage where idEpreuve = ?";
-    static String selectQuestionTirage = "select * from questiontirage where idEpreuve = ? and idQuestion = ?";
+    static String selectQuestionsTirageListe = "select * from question_tirage where idEpreuve = ?";
+    static String selectQuestionTirage = "select * from question_tirage where idEpreuve = ? and idQuestion = ?";
 
     static String insertQuestionTirage = "insert into question_tirage (estMarquee, idQuestion, numordre, idEpreuve) values (?, ?, ?, ?)";
 
     public static ArrayList<QuestionTirage> getQuestionsTirageListe(Integer idEpreuve) throws SQLException {
 
-        ArrayList<QuestionTirage> questionsTirageListe = null;
+        ArrayList<QuestionTirage> questionsTirageListe = new ArrayList<>();
         Connection cnx = null;
         PreparedStatement rqt = null;
         ResultSet rs = null;
@@ -98,4 +98,5 @@ public class DalQuestionTirage {
             if (cnx != null) cnx.close();
         }
     }
+
 }
