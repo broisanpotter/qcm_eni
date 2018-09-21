@@ -1,0 +1,14 @@
+<%@ page import ="entity.*, java.util.*, java.text.*" %>
+<form id="gestionResultat" action="<%=request.getContextPath()%>/test" method="post">
+    <%
+        ArrayList<Epreuve> listeResultat = (ArrayList<Epreuve>)request.getSession().getAttribute("listeResultat");
+        int index = 0;
+        for(Epreuve e : listeResultat) {
+    %>
+    <tr>
+        <td><%=e.getTest().getLibelle()%></td>
+        <td><%=e.getNote_obtenue()%></td>
+    </tr>
+    <%
+            index++;} %>
+</form>

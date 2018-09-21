@@ -26,7 +26,7 @@
                 <a class="nav-link" href="/accueilUtilisateur">Gestion des candidats et collaborateurs </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Consulter les resultats</a>
+                <a class="nav-link" href="/resultat">Consulter les resultats</a>
             </li>
             <li class="nav-item">
                 <a class="  nav-link" href="/test">Voir les tests</a>

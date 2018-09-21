@@ -43,7 +43,7 @@ public class DalEpreuve {
 
     public static ArrayList<Epreuve> getEpreuves(Integer idUtilisateur) throws SQLException{
 
-        ArrayList<Epreuve> epreuvesListe = null;
+        ArrayList<Epreuve> epreuvesListe = new ArrayList<>();
         Connection cnx = null;
         PreparedStatement rqt = null;
         ResultSet rs = null;
@@ -61,6 +61,7 @@ public class DalEpreuve {
                 epreuve.setDateFinValidite(rs.getDate("dateFinValidite"));
                 epreuve.setTempsEcoule(rs.getInt("tempsEcoule"));
                 epreuve.setEtat(rs.getString("etat"));
+                epreuve.setIdTest(rs.getInt("idTest"));
                 epreuve.setNote_obtenue(rs.getDouble("note_obtenue"));
                 epreuve.setNiveau_obtenu(rs.getString("niveau_obtenu"));
                 epreuvesListe.add(epreuve);
