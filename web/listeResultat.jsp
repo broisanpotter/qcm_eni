@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrateur
-  Date: 13/09/2018
-  Time: 10:02
+  Date: 20/09/2018
+  Time: 14:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <title>Test</title>
+    <title>Resultats</title>
 </head>
 <body>
 <div>
@@ -17,7 +17,7 @@
 </div>
 
 
-<h2>Liste des tests </h2>
+<h2>Liste des resultats </h2>
 
 <div id="page">
     <div id="contenu">
@@ -26,16 +26,15 @@
             <table>
 
                 <tr>
-                    <th>Libelle</th>
-                    <th>Duree</th>
-                    <th>Description</th>
+                    <th>Test</th>
+                    <th>Resultat obtenu</th>
                 </tr>
-                <%@ include file="listeTest.jspf" %>
+                <%@ include file="listeResultat.jspf" %>
             </table>
 
-    </div>
+        </div>
 
-</div>
+    </div>
 
 </body>
 </html>

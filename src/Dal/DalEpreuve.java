@@ -65,6 +65,7 @@ public class DalEpreuve {
                 epreuve.setDateFinValidite(rs.getDate("dateFinValidite"));
                 epreuve.setTempsEcoule(rs.getInt("tempsEcoule"));
                 epreuve.setEtat(rs.getString("etat"));
+                epreuve.setIdTest(rs.getInt("idTest"));
                 epreuve.setNote_obtenue(rs.getDouble("note_obtenue"));
                 epreuve.setNiveau_obtenu(rs.getString("niveau_obtenu"));
                 epreuve.setIdTest(rs.getInt("idTest"));

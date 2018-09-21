@@ -156,4 +156,36 @@ public class DalTest {
 
 
     }
+
+    public static Test getTest(Integer idTest) throws SQLException {
+
+        Test test = null;
+        Connection cnx = null;
+        PreparedStatement rqt = null;
+        ResultSet rs = null;
+
+        try{
+
+            cnx = ConnectDB.connect();
+            rqt = cnx.prepareStatement("select * from test where idTest = ?");
+            rqt.setInt(1, idTest);
+            rs=rqt.executeQuery();
+            if (rs.next()){
+
+                test = new Test();
+                test.setIdTest(rs.getInt("idTest"));
+                test.setLibelle(rs.getString("libelle"));
+                test.setDescription(rs.getString("description"));
+                test.setDuree(rs.getInt("duree"));
+                test.setSeuilHaut(rs.getInt("seuil_haut"));
+                test.setSeuilBas(rs.getInt("seuil_bas"));
+            }
+        }finally{
+
+            if (rs!=null) rs.close();
+            if (rqt!=null) rqt.close();
+            if (cnx!=null) cnx.close();
+        }
+        return test;
+    }
 }
