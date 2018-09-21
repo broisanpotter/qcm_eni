@@ -1,6 +1,8 @@
 package entity;
 
-import java.util.ArrayList;
+import Dal.DalQuestion;
+
+import java.sql.SQLException;
 
 public class QuestionTirage {
 
@@ -8,6 +10,7 @@ public class QuestionTirage {
     Integer numOrdre;
     Integer idEpreuve;
     Integer idQuestion;
+    Question question;
 
     public QuestionTirage() {
     }
@@ -42,5 +45,20 @@ public class QuestionTirage {
 
     public void setIdQuestion(Integer idQuestion) {
         this.idQuestion = idQuestion;
+    }
+
+    public Question getQuestion() {
+        if(this.question == null){
+            try {
+                this.question = DalQuestion.getQuestion(this.idQuestion);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return this.question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 }

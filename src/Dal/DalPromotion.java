@@ -39,5 +39,4 @@ public class DalPromotion {
         }
         return listPromotion;
     }
-
 }

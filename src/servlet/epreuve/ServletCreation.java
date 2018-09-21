@@ -64,7 +64,7 @@ public class ServletCreation extends HttpServlet {
                     }
                     message = message + "La date de fin doit être supérieur a la date de bébut.";
                 }
-                if(dateDebutValidite.compareTo(date) <= 0){
+                if(dateDebutValidite.compareTo(date) < 1){
 
                     formulaireNonCorrect = true;
                     if (message.length() > 0) {
