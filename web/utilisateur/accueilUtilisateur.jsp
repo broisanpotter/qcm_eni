@@ -13,7 +13,7 @@
 <html>
 <head>
     <title>Gestion des utilisateurs</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -37,7 +37,8 @@
         %>
     </div>
 
-    <a href="/ajoutUtilisateur">Ajouter un utilisateur</a>
+    <a href="/ajoutUtilisateur">Ajouter un utilisateur</a><br>
+    <a href="/epreuve/ajouter">Inscrire un utilisateur à un test</a>
 
     <h2>Liste des candidats</h2>
 

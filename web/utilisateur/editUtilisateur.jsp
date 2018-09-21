@@ -12,8 +12,15 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 </head>
 <body>
+    <div>
+        <%@ include file='../navbar.jspf' %>
+    </div>
+    <div>
+        <%@ include file='../header.jspf' %>
+    </div>
     <h1>On modifie un super utilisateur youpi</h1>
 
     <div>

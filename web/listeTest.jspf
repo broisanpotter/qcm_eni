@@ -9,17 +9,17 @@
                 <td><%=t.getLibelle() %></td>
                 <td> <%= t.getDuree()%></td>
                 <td><%= t.getDescription() %></td>
-                <% if(profil == 2)
+                <% if(profil == 1)
                 { %>
                 <td> <button type="submit" name="bSupprimer_<%=index%>">Supprimer</button> </td>
                 <td> <button type="submit" name="bModifier_<%=index%>">Modifier</button> </td>
                <% } else { %>
-                <td><button type="submit" name="bPasser_<%=index%>">Passer</button> </td>
+                <!--<td><button type="submit" name="bPasser_<%=index%>">Passer</button> </td>-->
                 <% } %>
             </tr>
     <%
             index++;} %>
-    <% if(profil == 2)
+    <% if(profil == 1)
     { %>
     <input type="submit" name="bAjouter" value="Ajouter"/>
     <% }%>
