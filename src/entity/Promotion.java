@@ -2,22 +2,22 @@ package entity;
 
 public class Promotion {
 
-    Integer codePromo;
+    String codePromo;
     String libelle;
 
     public Promotion() {
     }
 
-    public Promotion(Integer codePromo, String libelle) {
+    public Promotion(String codePromo, String libelle) {
         this.codePromo = codePromo;
         this.libelle = libelle;
     }
 
-    public Integer getCodePromo() {
+    public String getCodePromo() {
         return codePromo;
     }
 
-    public void setCodePromo(Integer codePromo) {
+    public void setCodePromo(String codePromo) {
         this.codePromo = codePromo;
     }
 

@@ -26,7 +26,20 @@
 
     <h1>Gestion des utilisateurs</h1>
 
-    <h2>Liste des collaborateurs</h2>
+    <div>
+        <%
+            String message = (String)request.getAttribute("message");
+            if(message != null) {
+            %><span>
+                <%= message %>
+            </span><%
+            }
+        %>
+    </div>
+
+    <a href="/ajoutUtilisateur">Ajouter un utilisateur</a>
+
+    <h2>Liste des candidats</h2>
 
     <table class="table">
         <tr>
@@ -45,42 +58,42 @@
                     <td><%=utilisateur.getNom()%></td>
                     <td><%=utilisateur.getPrenom()%></td>
                     <td><%=utilisateur.getEmail()%></td>
-                    <td><button id="<%=utilisateur.getIdUtilisateur()%>">Supprimer</button></td>
-                    <td><button id="<%=utilisateur.getIdUtilisateur()%>">Modifier</button></td>
-                </tr><br>
+                    <td><a href="/deleteUtilisateur?id=<%= utilisateur.getIdUtilisateur()%>">Supprimer</a></td>
+                    <td><a href="/editUtilisateur?id=<%=utilisateur.getIdUtilisateur()%>">Modifier</a></td>
+                </tr>
                 <%
             }
         }
 
         %>
     </table>
-        <h2>Liste des candidats</h2>
+        <h2>Liste des collaborateurs</h2>
 
-<table class="table">
-    <tr>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Email</th>
-    </tr>
-        <%
-
-        if(request.getAttribute("listCandidat") != null) {
-
-            ArrayList<Utilisateur> listCandidat = (ArrayList<Utilisateur>) request.getAttribute("listCandidat");
-
-            for(Utilisateur utilisateur : listCandidat){
-            %>
-            <tr>
-                <td><%=utilisateur.getNom()%></td>
-                <td><%=utilisateur.getPrenom()%></td>
-                <td><%=utilisateur.getEmail()%></td>
-                <td><button id="<%=utilisateur.getIdUtilisateur()%>">Supprimer</button></td>
-                <td><button id="<%=utilisateur.getIdUtilisateur()%>">Modifier</button></td>
-            </tr>
+    <table class="table">
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+        </tr>
             <%
+
+            if(request.getAttribute("listCandidat") != null) {
+
+                ArrayList<Utilisateur> listCandidat = (ArrayList<Utilisateur>) request.getAttribute("listCandidat");
+
+                for(Utilisateur utilisateur : listCandidat){
+                %>
+                <tr>
+                    <td><%=utilisateur.getNom()%></td>
+                    <td><%=utilisateur.getPrenom()%></td>
+                    <td><%=utilisateur.getEmail()%></td>
+                    <td><a href="/deleteUtilisateur?id=<%= utilisateur.getIdUtilisateur()%>">Supprimer</a></td>
+                    <td><a href="/editUtilisateur?id=<%=utilisateur.getIdUtilisateur()%>">Modifier</a></td>
+                </tr>
+                <%
+                }
             }
-        }
-    %>
+        %>
     </table>
 
 

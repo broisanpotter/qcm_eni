@@ -12,7 +12,7 @@ public class Utilisateur extends DalUser {
     String email;
     String password;
     Integer profil;
-    Promotion promotion;
+    String promotion;
     ArrayList<Epreuve> epreuves;
 
     public Utilisateur() {
@@ -76,7 +76,17 @@ public class Utilisateur extends DalUser {
         return this.profil;
     }
 
+    public void setProfil(Integer profil) {
+        this.profil = profil;
+    }
 
+    public String getPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(String promotion) {
+        this.promotion = promotion;
+    }
 
     @Override
     public String toString() {
