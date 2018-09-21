@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"/>
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
   <title>QCM - Erreur</title>
 </head>
 <body>
